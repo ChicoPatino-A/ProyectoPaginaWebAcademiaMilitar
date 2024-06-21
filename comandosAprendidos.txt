@@ -10,3 +10,7 @@ ipconfig -> copiar la direccion IPV4 =
 
 
 COMANDOS DE GIT HUB
+
+git add .
+git commit -m "comentario"
+git push origin master
