@@ -1,0 +1,12 @@
+Para abrir correctamente el proyecto:
+
+Colocar en el directorio "cmd"
+Luego cuando se abra la consola colocar el comando: "code ." -> abre visual code.  
+
+
+si quiero colocar la ip correcta: 
+ipconfig -> copiar la direccion IPV4 = 
+
+
+
+COMANDOS DE GIT HUB
