@@ -1,37 +1,11 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página web academia militar</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
-</head>
-
-<body>
-
-    <header>
-        <div class="header-content">
-            <img src="{{ url_for('static', filename='images/logo_proyecto.jpg') }}" alt="Logo" class="logo">
-            <h1>Página de Contacto</h1>
-            <nav>
-               
-                <a href="#contacto.html">Contacto</a>
-                <a href="#acercade.html">Acerca de</a>
-                
-            </nav>
-           
-        </div>
-    </header>
-    <main>
-    <h1>Academia de Logística</h1>
-  
-    <p>La Academia de Logística (ACLOG) de reciente creación (06 Noviembre 2.001) está ubicada en el Acuartelamiento Barón de Warsage (Inaugurado en 1.926 con el Nombre Infante D. Jaime) es uno de los Centros de Enseñanza más modernos e importantes del Ejército de Tierra (ET). Está situada en la localidad aragonesa de Calatayud.
-En la Academia se forman por Curso unos 2.000 Alumnos de las diversas Especialidades Técnicas y de Logística del Ejército, dando cabida, asimismo,  a otros Ejércitos Nacionales y Extranjeros. Las capacidades docentes actuales del Centro, entre las que se deben destacar sus modernas instalaciones y su permanente adaptación a los nuevos planes de enseñanza militar, lo convierten en un excelente motor de futuro que pretende seguir compartiendo muchos años con Calatayud y su Comarca.</p>
-<h1>¿Que es este proyecto?</h1>
-</main>
-
-<footer>
-    <p>&copy; 2024 Academia Militar. Todos los derechos reservados.</p>
-</footer>
-</body>
-</html>
+{% extends "plantillabase.html" %}
+{% block content %}
+<h1>Bienvenidos a la Plataforma Multimedia de la Academia Militar</h1>
+<p>¡Bienvenidos a nuestra plataforma web interactiva! Este espacio está dedicado a almacenar, gestionar y compartir los videos e imágenes capturados durante las actividades académicas y extracurriculares de nuestra academia. Aquí, encontrarás un repositorio centralizado y seguro que te permitirá acceder fácilmente a todos esos momentos importantes, ya seas alumno, exalumno o miembro del personal.</p>
+<h1>¿Por qué esta plataforma?</h1>
+<p>Queremos ofrecer una solución eficiente y segura para organizar y preservar el valioso contenido multimedia generado a lo largo del año académico. Esta herramienta no solo te permite gestionar y acceder fácilmente a una gran cantidad de videos e imágenes, sino que también garantiza su disponibilidad a largo plazo, evitando que se pierdan recuerdos significativos.</p>
+<h1>¿Qué sentido tiene?</h1>
+<p>Más allá de su funcionalidad práctica, esta plataforma tiene un gran valor emocional. Proporciona un medio para conservar y revivir recuerdos importantes, fomentando un sentido de comunidad y continuidad entre las distintas generaciones de nuestra academia. Es un lugar donde puedes volver a vivir esos momentos especiales y mantener vivos los lazos con tus compañeros.</p>
+<h1>¿Qué puedes hacer aquí?</h1>
+<p>En nuestra web, podrás visualizar contenido multimedia relacionado con la vida académica y militar de manera intuitiva y accesible. Diseñada para ser utilizada desde cualquier dispositivo, nuestra plataforma garantiza que puedas acceder a tus videos e imágenes en cualquier momento y lugar, siempre que lo necesites.</p>
+{% endblock %}    

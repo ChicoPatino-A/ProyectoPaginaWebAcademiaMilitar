@@ -1,37 +1,10 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página web academia militar</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
-</head>
-
-<body>
-    <header>
-        <div class="header-content">
-            <img src="{{ url_for('static', filename='images/logo_proyecto.jpg') }}" alt="Logo" class="logo">
-            <h1>Página de Contacto</h1>
-            <nav>
-               
-                <a href="#contacto.html">Contacto</a>
-                <a href="#acercade.html">Acerca de</a>
-                
-            </nav>
-           
-        </div>
-    </header>
-    <main>                   
-        <!-- Sección de contacto -->
-        <section id="contacto" class="contacto-seccion">
-            <h2>Realizadora del proyecto</h2>
-            <img src="{{ url_for('static', filename='images/johana.jpg') }}" alt="Tu Imagen" class="contacto-imagen">
-            <p><strong>Nombre:</strong> Johana Amalia Chico Patiño</p>
-            <p><strong>Correo:</strong> <a href="mailto:tucorreo@ejemplo.com">johana@gmail.com</a></p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 Academia Militar. Todos los derechos reservados.</p>
-    </footer>
-</body>
-</html>
+{% extends "plantillabase.html" %}
+{% block content %}                  
+<!-- Sección de contacto -->
+<section id="contacto" class="contacto-seccion">
+<h2>Realizadora del proyecto</h2>
+<img src="{{ url_for('static', filename='images/johana.jpg') }}" alt="Tu Imagen" class="contacto-imagen">
+<p><strong>Nombre:</strong> Johana Amalia Chico Patiño</p>
+<p><strong>Correo:</strong> <a href="mailto:tucorreo@ejemplo.com">johana@gmail.com</a></p>
+</section>
+{% endblock %}
