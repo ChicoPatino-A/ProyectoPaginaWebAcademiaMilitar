@@ -1,0 +1,16 @@
+{% extends "plantillabase.html" %}
+{% block content %}
+
+<!-- Sección de información -->
+<section id="informacion" class="informacion-seccion">
+    <h2>Promociones</h2>
+</section>
+
+<section class="promocion-l-seccion">
+    <img src="{{ url_for('static', filename='images/infot.jpeg') }}" alt="informatica" class="promocion-imagen">
+    <div class="promocion-texto">
+        <a href="{{url_for('promociones')}}" class="promocion-enlace">Promoción L</a>
+    </div>
+</section>
+{% endblock %}
+

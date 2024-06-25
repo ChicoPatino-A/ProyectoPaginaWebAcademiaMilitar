@@ -1,10 +1,14 @@
 {% extends "plantillabase.html" %}
 {% block content %}                  
-<!-- Sección de contacto -->
 <section id="contacto" class="contacto-seccion">
-<h2>Realizadora del proyecto</h2>
-<img src="{{ url_for('static', filename='images/johana.jpg') }}" alt="Tu Imagen" class="contacto-imagen">
-<p><strong>Nombre:</strong> Johana Amalia Chico Patiño</p>
-<p><strong>Correo:</strong> <a href="mailto:tucorreo@ejemplo.com">johana@gmail.com</a></p>
+    <h2>Realizadora del Proyecto</h2>
+    <div class="contacto-contenido">
+        <img src="{{ url_for('static', filename='images/johana.jpg') }}" alt="Imagen de Johana" class="contacto-imagen">
+        <div class="contacto-detalles">
+            <p><strong>Nombre:</strong> Johana Amalia Chico Patiño</p>
+            <p><strong>Correo:</strong> <a href="mailto:johana@gmail.com">johana@gmail.com</a></p>
+        </div>
+    </div>
 </section>
+
 {% endblock %}

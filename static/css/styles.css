@@ -72,7 +72,7 @@ main {
 
 main h2 {
     font-size: 2rem;
-    color: #005731;
+    color: #191919;
     margin-bottom: 1rem;
 }
 
@@ -139,25 +139,28 @@ footer {
     margin: 2rem auto;
     max-width: 800px;
     background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
+/* Título */
 .contacto-seccion h2 {
-    font-size: 2rem;
-    color: #005731;
+    font-size: 2.5rem;
+    color: #000; /* Cambiado a negro */
     margin-bottom: 1.5rem;
+    font-weight: 700;
 }
 
+/* Contenido */
 .contacto-contenido {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap;
+    gap: 1rem;
 }
 
+/* Imagen */
 .contacto-imagen {
     width: 150px;
     height: 150px;
@@ -166,33 +169,223 @@ footer {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Detalles */
 .contacto-detalles {
-    text-align: left;
+    text-align: center;
+    max-width: 600px;
 }
 
 .contacto-detalles p {
     font-size: 1rem;
     margin: 0.5rem 0;
-    color: #555;
+    color: #000; /* Cambiado a negro */
 }
 
 .contacto-detalles a {
     color: #005731;
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    border-bottom: 2px solid transparent;
 }
 
 .contacto-detalles a:hover {
     color: #00381e;
+    border-bottom: 2px solid #00381e;
 }
 
-@media (max-width: 600px) {
+/* Responsivo */
+@media (max-width: 768px) {
+    .contacto-seccion {
+        padding: 1.5rem;
+    }
+
     .contacto-contenido {
-        flex-direction: column;
-        align-items: center;
+        gap: 0.5rem;
     }
 
     .contacto-detalles {
-        text-align: center;
+        max-width: 90%;
     }
 }
+
+@media (max-width: 480px) {
+    .contacto-seccion {
+        padding: 1rem;
+    }
+
+    .contacto-imagen {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+/*---------------------------------------------ACERCA DE ----------------------------------*/
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Título Principal */
+main h1:first-of-type {
+    font-size: 2.5rem;
+    color: #2d2c2c;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Títulos Secundarios */
+main h1:not(:first-of-type) {
+    font-size: 2rem;
+    color: #00381e;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* Párrafos */
+main p {
+    font-size: 1.125rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    color: #555;
+    text-align: justify;
+}
+
+/* Estilos de enlaces */
+main a {
+    color: #005731;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+main a:hover {
+    color: #00381e;
+}
+
+/* Resaltar Párrafos Importantes */
+main p.important {
+    background-color: #f0f0f5;
+    padding: 1rem;
+    border-left: 4px solid #005731;
+    border-radius: 4px;
+    margin: 1rem 0;
+    font-weight: bold;
+}
+
+/* Estilo Responsivo */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+
+    main {
+        padding: 1.5rem;
+    }
+
+    main h1:first-of-type {
+        font-size: 2rem;
+    }
+
+    main h1:not(:first-of-type) {
+        font-size: 1.75rem;
+    }
+
+    main p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    main {
+        padding: 1rem;
+    }
+
+    main h1:first-of-type {
+        font-size: 1.75rem;
+    }
+
+    main h1:not(:first-of-type) {
+        font-size: 1.5rem;
+    }
+
+    main p {
+        font-size: 0.875rem;
+    }
+}
+
+/*---------------------------------------------PROMOCIONES ----------------------------------*/
+/* Sección Promoción L */
+.promocion-l-seccion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    max-width: 300px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Imagen */
+.promocion-imagen {
+    width: 150px; /* Tamaño reducido de la imagen */
+    height: 150px; /* Tamaño reducido de la imagen */
+    border-radius: 12px; /* Bordes ligeramente redondeados */
+    object-fit: cover;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem; /* Espacio entre imagen y botón */
+}
+
+/* Botón */
+.promocion-boton {
+    font-size: 1rem;
+    color: #fff;
+    background-color: #005731;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 0.5rem; /* Espacio entre imagen y texto */
+    width: 80%;
+    text-align: center;
+}
+
+.promocion-boton:hover {
+    background-color: #00381e;
+    transform: translateY(-2px);
+}
+
+.promocion-boton:active {
+    background-color: #00260f;
+    transform: translateY(1px);
+}
+
+/* Responsivo */
+@media (max-width: 480px) {
+    .promocion-l-seccion {
+        padding: 1rem;
+    }
+
+    .promocion-imagen {
+        width: 120px;
+        height: 120px;
+    }
+
+    .promocion-boton {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+    }
+}
+
+
