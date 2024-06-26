@@ -25,6 +25,7 @@ header {
 
 .header-content {
     display: flex;
+    background-color: #060057;
     align-items: center;
     width: 100%;
     max-width: 1200px;
@@ -39,6 +40,8 @@ header h1 {
 nav {
     margin-left: 2rem;
     flex-grow: 1;
+    display: flex;
+    align-items: center; 
 }
 
 nav a {
@@ -47,6 +50,7 @@ nav a {
     margin-left: 1rem;
     font-size: 1rem;
 }
+
 
 nav a:hover {
     text-decoration: underline;
@@ -72,7 +76,7 @@ main {
 
 main h2 {
     font-size: 2rem;
-    color: #191919;
+    color: #1f1c1c;
     margin-bottom: 1rem;
 }
 
@@ -85,6 +89,34 @@ footer {
     width: 100%;
     bottom: 0;
 }
+
+.header-content {
+    display: flex;
+    justify-content: space-between; /* Distribuye los elementos a lo largo del contenedor */
+    align-items: center; /* Alinea verticalmente los elementos al centro */
+    padding: 10px 20px; /* Espaciado interno para el contenido del encabezado */
+    background-color: #060057; /* Color de fondo opcional para el encabezado */
+  }
+
+  .logo {
+    max-width: 100px; /* Ajusta el tamaño máximo del logo según sea necesario */
+  }
+
+  
+
+  nav a {
+    margin-left: 20px; 
+    color: #ffffff; 
+    text-decoration: none; /* Quitar subrayado del texto del enlace */
+  }
+  
+
+  .nav-login {
+    margin-left: auto; /* Mueve este enlace hacia la derecha */
+    font-weight: bold; /* Opcional: Añade negrita al texto de "Iniciar Sesión" */
+    color: #fec4c4; /* Color del texto de "Iniciar Sesión" */
+    text-decoration: none; /* Quitar subrayado del texto del enlace */
+  }
 
 /*--------------------------------------------- INICIAR SESION ----------------------------------*/
 .iniciar-sesion-seccion {
