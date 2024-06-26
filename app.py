@@ -63,4 +63,6 @@ def login():
         return "Este usuario no existe."
 
 if __name__ == '__main__':
-    app.run(debug=True, host='192.168.43.69', port=5000)
+    app.run(debug=True, host='10.108.4.35', port=5000)
+
+#192.168.43.69

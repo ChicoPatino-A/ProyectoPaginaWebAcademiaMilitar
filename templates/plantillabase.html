@@ -9,16 +9,17 @@
 <body>
     <header>
         <div class="header-content">
-            <img src="{{ url_for('static', filename='images/logo_proyecto.jpg') }}" alt="Logo" class="logo">
+            <a href="{{ url_for('principal') }}">
+                <img src="{{ url_for('static', filename='images/logo_proyecto.jpg') }}" alt="Logo" class="logo">
+            </a>
             <h1>Academia de Logística</h1>
             <nav>
                 <a href="{{url_for('principal')}}">Inicio</a>
                 <a href="{{url_for('promociones')}}">Promociones</a>
                 <a href="{{url_for('contacto')}}">Contacto</a>
                 <a href="{{url_for('acercade')}}">Acerca de</a>
-                <a href="{{url_for('iniciarsesion')}}">Iniciar Sesión</a>
+                <a href="{{url_for('iniciarsesion')}}" class="nav-login">Iniciar Sesión</a>
             </nav>
-           
         </div>
     </header>
     <main class = "content-main">
