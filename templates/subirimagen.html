@@ -1,0 +1,62 @@
+{% extends "plantillabase.html" %}
+{% block content %}
+<div class="container my-5">
+    <div class="card mx-auto" style="max-width: 600px;">
+        <div class="card-header bg-primary text-white">
+            <h2 class="text-center my-2">Subir Imágenes</h2>
+        </div>
+        <div class="card-body">
+            <form action="/subirimagen" method="post" enctype="multipart/form-data">
+                <!-- Cargar Imagen -->
+                <div class="mb-3 row">
+                    <label for="imagenPromocion" class="col-sm-4 col-form-label text-end">Cargar Imagen:</label>
+                    <div class="col-sm-8">
+                        <input type="file" id="imagenPromocion" name="imagenPromocion" class="form-control" accept="image/*" required>
+                    </div>
+                </div>
+
+                <!-- Título de la Imagen -->
+                <div class="mb-3 row">
+                    <label for="tituloImagen" class="col-sm-4 col-form-label text-end">Título de la Imagen:</label>
+                    <div class="col-sm-8">
+                        <input type="text" id="tituloImagen" name="tituloImagen" class="form-control" required>
+                    </div>
+                </div>
+
+                <!-- Reseña -->
+                <div class="mb-3 row">
+                    <label for="resenaImagen" class="col-sm-4 col-form-label text-end">Reseña:</label>
+                    <div class="col-sm-8">
+                        <textarea id="resenaImagen" name="resenaImagen" class="form-control" rows="4" required></textarea>
+                    </div>
+                </div>
+
+                <!-- Promoción -->
+                <div class="mb-3 row">
+                    <label for="categoriaPromocion" class="col-sm-4 col-form-label text-end">Promoción:</label>
+                    <div class="col-sm-8">
+                        <select id="categoriaPromocion" name="categoriaPromocion" class="form-control" required>
+                            <option value="">Seleccionar Promoción</option>
+                            <option value="PromocionL">Promoción L</option>
+                            <option value="PromocionLI">Promoción LI</option>
+                            <option value="PromocionLII">Promoción LII</option>
+                        </select>
+                    </div>
+                </div>
+
+               <!-- Botones -->
+               <div class="row justify-content-center">
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary btn-lg me-3">Subir Imagen</button>
+                    <button type="button" class="btn btn-outline-primary btn-lg" onclick="window.history.back()">Volver</button>
+                </div>
+            </div>
+            </form>
+            
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+

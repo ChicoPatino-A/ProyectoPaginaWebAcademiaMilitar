@@ -13,11 +13,8 @@ db_config = {
 
 @app.route('/')
 def home():
-    return '¡Bienvenida, estoy en Casa!'
+    return render_template('index.html')
 
-@app.route('/johana')
-def johana():
-    return '¡Bienvenida Johana!'
 
 @app.route('/principal')
 def principal():
@@ -45,6 +42,7 @@ def login():
     correo = request.form['correo']
     contrasena = request.form['contrasena']
 
+
     # Conectar a la base de datos
     conn = mysql.connector.connect(**db_config)
     cursor = conn.cursor()
@@ -58,11 +56,68 @@ def login():
     conn.close()
 
     if user: # preguntando si user EXISTE. 
-        return "Sí, hemos encontrado este usuario."
+        return render_template('administracion.html')
     else:
         return "Este usuario no existe."
 
+@app.route('/crearPromocion')
+def crearPromocion():
+    return render_template('crearpromocion.html')
+
+@app.route('/crearAdministrador')
+def crearAdministrador():
+    return render_template('crearadministrador.html')
+
+@app.route('/subirVideo')
+def subirVideo():
+    return render_template('subirVideo.html')
+
+@app.route('/subirImagen')
+def subirImagen():
+    return render_template('subirImagen.html')
+
+@app.route('/crearCuenta',  methods=['POST'])
+def crearCuenta():
+        # Guardo la informacion del formulario en las variables correo y contrasena
+    correo = request.form['correo']
+    contrasena = request.form['contrasena']
+
+
+    # Conectar a la base de datos
+    conn = mysql.connector.connect(**db_config)
+    cursor = conn.cursor()
+
+    # Insertar en la base de datos
+    query = "INSERT INTO usuarios(email, password) VALUES (%s, %s);"
+    cursor.execute(query, (correo, contrasena))
+    
+    conn.commit()
+    cursor.close()
+    conn.close()
+
+    return "registro exitoso"
+
+@app.route('/guardarPromocion',  methods=['POST'])
+def guardarPromocion():
+
+    numero_promocion = request.form['numeroPromocion']
+    url_imagen = "url_falsa"
+    # Conectar a la base de datos
+    conn = mysql.connector.connect(**db_config)
+    cursor = conn.cursor()
+
+    query = "INSERT INTO promociones (numero_promocion, url_imagen) VALUES (%s, %s);"
+    cursor.execute(query, (numero_promocion, url_imagen))
+    
+    conn.commit()
+    cursor.close()
+    conn.close()
+
+    return "registro exitoso"
+
+    
 if __name__ == '__main__':
     app.run(debug=True, host='10.108.4.35', port=5000)
 
 #192.168.43.69
+#10.108.4.35

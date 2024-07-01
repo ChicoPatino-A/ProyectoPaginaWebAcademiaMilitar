@@ -1,0 +1,42 @@
+{% extends "plantillabase.html" %}
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+            <h2 class="text-center my-2">Crear Promoción</h2>
+        </div>
+        <div class="card-body">
+            <form action="/guardarPromocion" method="post" enctype="multipart/form-data">
+                <!-- Número de la Promoción -->
+                <div class="mb-3 row">
+                    <label for="numeroPromocion" class="col-sm-3 col-form-label text-end">Número de la Promoción:</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="numeroPromocion" name="numeroPromocion" class="form-control" required>
+                    </div>
+                </div>
+                
+                <!-- Cargar Imagen -->
+                <div class="mb-3 row">
+                    <label for="imagenPromocion" class="col-sm-3 col-form-label text-end">Cargar Imagen:</label>
+                    <div class="col-sm-9">
+                        <input type="file" id="imagenPromocion" name="imagenPromocion" class="form-control" accept="image/*" required>
+                    </div>
+                </div>
+                
+                <!-- Botones -->
+                <div class="row justify-content-center">
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-primary btn-lg me-3">Subir Imagen</button>
+                        <button type="button" class="btn btn-outline-primary btn-lg" onclick="window.history.back()">Volver</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+
+
+  
