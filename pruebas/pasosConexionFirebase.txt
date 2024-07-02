@@ -1,0 +1,3 @@
+1 . Ve a tu consola de Firebase y descarga el archivo de clave privada JSON de tu proyecto.
+
+2. Coloca el archivo JSON en el mismo directorio donde estará tu script de Python.
