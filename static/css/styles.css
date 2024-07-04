@@ -351,74 +351,82 @@ main p.important {
     }
 }
 
-/*---------------------------------------------PROMOCIONES ----------------------------------*/
-/* Sección Promoción L */
-.promocion-l-seccion {
+/*---------------------------------------------EMIES ----------------------------------*/
+
+.promociones-seccion {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.promociones-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1200px;
+    width: 100%;
+    justify-content: center;
+}
+
+.promocion-item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 2rem;
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    padding: 1rem;
-    max-width: 300px;
-    width: 100%;
-    text-align: center;
-}
-
-/* Imagen */
-.promocion-imagen {
-    width: 150px; /* Tamaño reducido de la imagen */
-    height: 150px; /* Tamaño reducido de la imagen */
-    border-radius: 12px; /* Bordes ligeramente redondeados */
-    object-fit: cover;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    overflow: hidden; /* Asegura que el contenido no se desborde */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 1rem; /* Espacio entre imagen y botón */
+    width: 200px; /* Reducción del ancho de las tarjetas */
+    max-width: 100%;
 }
 
-/* Botón */
-.promocion-boton {
-    font-size: 1rem;
-    color: #fff;
-    background-color: #005731;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    text-decoration: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    margin-top: 0.5rem; /* Espacio entre imagen y texto */
-    width: 80%;
-    text-align: center;
+.promocion-imagen {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Recorta la imagen para que encaje en el cuadro */
+    display: block;
+    border-radius: 10px; /* Aplicar el borde redondeado a todas las esquinas */
 }
 
-.promocion-boton:hover {
-    background-color: #00381e;
-    transform: translateY(-2px);
-}
-
-.promocion-boton:active {
-    background-color: #00260f;
-    transform: translateY(1px);
+.promocion-numero {
+    font-size: 1em; /* Tamaño de fuente más pequeño para el texto */
+    color: #333;
+    margin-top: 10px;
 }
 
 /* Responsivo */
-@media (max-width: 480px) {
-    .promocion-l-seccion {
-        padding: 1rem;
+@media (max-width: 992px) {
+    .promociones-grid {
+        gap: 15px;
+    }
+
+    .promocion-item {
+        width: calc(50% - 10px);
     }
 
     .promocion-imagen {
-        width: 120px;
-        height: 120px;
-    }
-
-    .promocion-boton {
-        font-size: 0.9rem;
-        padding: 0.4rem 0.8rem;
+        width: 100%; /* Ajuste de ancho */
+        height: auto; /* Ajuste de altura */
     }
 }
+
+@media (max-width: 600px) {
+    .promociones-grid {
+        gap: 10px;
+    }
+
+    .promocion-item {
+        width: calc(100% - 10px);
+    }
+
+    .promocion-imagen {
+        width: 100%; /* Ajuste de ancho */
+        height: auto; /* Ajuste de altura */
+    }
+}
+
+
 
 /*---------------------------------------------ADMINISTRACION ----------------------------------*/
 /* Estilos para el contenedor y los botones */
@@ -460,7 +468,7 @@ main p.important {
     }
 }
 
-/*---------------------------------------------CREARPROMOCION ----------------------------------*/
+/*---------------------------------------------AÑADIR PROMOCION ----------------------------------*/
 .custom-button {
     font-size: 1.2rem; /* Aumenta el tamaño de la fuente */
     padding: 10px 30px; /* Aumenta el tamaño del botón */
@@ -488,6 +496,7 @@ main p.important {
 .btn {
     font-size: 1rem; /* Ajusta el tamaño de la fuente para un botón de tamaño medio */
     padding: 8px 16px; /* Ajusta el tamaño del botón */
+    
 }
 
 .btn-primary, .btn-outline-primary {

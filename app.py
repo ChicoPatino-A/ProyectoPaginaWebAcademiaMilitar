@@ -1,5 +1,9 @@
 from flask import Flask, render_template, request, redirect, url_for
 import mysql.connector
+import firebase_admin
+from firebase_admin import credentials, storage
+import os
+from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 
@@ -34,7 +38,17 @@ def iniciarsesion():
 
 @app.route('/promociones')
 def promociones():
-    return render_template('promociones.html')
+    conn = mysql.connector.connect(**db_config)
+    cursor = conn.cursor(dictionary=True)
+
+    query = "SELECT id, numero_promocion, url_imagen FROM promociones"
+    cursor.execute(query)
+    promociones = cursor.fetchall()
+
+    cursor.close()
+    conn.close()
+
+    return render_template('promociones.html', promociones=promociones)
 
 @app.route('/login', methods=['POST'])
 def login():
@@ -97,27 +111,73 @@ def crearCuenta():
 
     return "registro exitoso"
 
-@app.route('/guardarPromocion',  methods=['POST'])
+# Inicializa Firebase
+def initialize_firebase(json_key_path, storage_bucket):
+    cred = credentials.Certificate(json_key_path)
+    firebase_admin.initialize_app(cred, {
+        'storageBucket': storage_bucket
+    })
+
+# Función para subir imagen a Firebase
+def subir_imagen(file_path):
+    bucket = storage.bucket()
+    blob = bucket.blob(os.path.basename(file_path))
+    blob.upload_from_filename(file_path)
+    blob.make_public()
+    return blob.public_url
+
+@app.route('/guardarPromocion', methods=['POST'])
 def guardarPromocion():
-
+    # Número de la promoción
     numero_promocion = request.form['numeroPromocion']
-    url_imagen = "url_falsa"
-    # Conectar a la base de datos
-    conn = mysql.connector.connect(**db_config)
-    cursor = conn.cursor()
-
-    query = "INSERT INTO promociones (numero_promocion, url_imagen) VALUES (%s, %s);"
-    cursor.execute(query, (numero_promocion, url_imagen))
     
-    conn.commit()
-    cursor.close()
-    conn.close()
+    # Ruta donde se guardará la imagen temporalmente
+    UPLOAD_FOLDER = 'static/images'
+    app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+    json_key_path = 'C://Users//aclog//Desktop//ProyectoFinal//Codigo//academiadelogistica-4a432-firebase-adminsdk-j0rgu-442fbffdb6.json'
+    storage_bucket = 'academiadelogistica-4a432.appspot.com'
 
-    return "registro exitoso"
+    # Inicializa Firebase
+    initialize_firebase(json_key_path, storage_bucket)
+    
+    # Manejo de archivo de imagen
+    if 'imagenPromocion' not in request.files:
+        return "No se encontró la imagen", 400
+
+    file = request.files['imagenPromocion']
+    if file.filename == '':
+        return "No se seleccionó ninguna imagen", 400
+
+    if file:
+        filename = secure_filename(file.filename)
+        local_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        file.save(local_path)
+        
+        # Subir imagen a Firebase
+        url_imagen = subir_imagen(local_path)
+
+        # Conectar a la base de datos
+        conn = mysql.connector.connect(**db_config)
+        cursor = conn.cursor()
+
+        # Insertar datos en la base de datos
+        query = "INSERT INTO promociones (numero_promocion, url_imagen) VALUES (%s, %s);"
+        cursor.execute(query, (numero_promocion, url_imagen))
+
+        conn.commit()
+        cursor.close()
+        conn.close()
+
+        # Eliminar archivo temporal local
+        os.remove(local_path)
+
+        return "Registro exitoso"
+    else:
+        return "Error al subir la imagen", 500
 
     
 if __name__ == '__main__':
-    app.run(debug=True, host='10.108.4.35', port=5000)
+    app.run(debug=True, host='192.168.43.69', port=5000)
 
 #192.168.43.69
 #10.108.4.35
