@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página web academia militar</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+3tnDO2F5KR7U5bbG+J0dy5+9eU4v" crossorigin="anonymous">
-    <!-- Custom CSS -->
-    <link href="/static/styles.css" rel="stylesheet"> <!-- Asegúrate de que la ruta al archivo CSS es correcta -->
 </head>
 <body>
     <header>
@@ -15,27 +13,31 @@
             <a href="{{ url_for('principal') }}">
                 <img src="{{ url_for('static', filename='images/logo_proyecto.jpg') }}" alt="Logo" class="logo">
             </a>
-            <h1>Academia de Logística</h1>
-            <nav>
-                <a href="{{url_for('principal')}}">Inicio</a>
-                <a href="{{url_for('promociones')}}">Promociones</a>
-                <a href="{{url_for('contacto')}}">Contacto</a>
-                <a href="{{url_for('acercade')}}">Acerca de</a>
-                <a href="{{url_for('iniciarsesion')}}" class="nav-login">Administración</a>
-            </nav>
+            <h1 class="title">Academia de Logística</h1>
+            <button class="menu-toggle" aria-label="Menú de navegación">&#9776;</button>
         </div>
+        <nav>
+            <a href="{{url_for('principal')}}">Inicio</a>
+            <a href="{{url_for('promociones')}}">Promociones</a>
+            <a href="{{url_for('contacto')}}">Contacto</a>
+            <a href="{{url_for('acercade')}}">Acerca de</a>
+            <a href="{{url_for('iniciarsesion')}}" class="nav-login">Administración</a>
+        </nav>
     </header>
-    <main class = "content-main">
-        
+    
+    <main class="content-main">
         {% block content %}
-    <!-- aqui van los diferentes bloques (ej: acerdade, contacto, etc)-->
+        <!-- aquí van los diferentes bloques (ej: acerdade, contacto, etc) -->
         {% endblock %}
-      
     </main>
     <footer>
         <p>&copy; 2024 Academia Militar. Todos los derechos reservados.</p>
     </footer>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js" integrity="sha384-qLa8tL0rkpLK9R7YpaBoXJWxAyb+Gq6EY1qxO8jCnjA/Jzqk+w4phtH9d9Ot6U6J" crossorigin="anonymous"></script>
-
+    <script>
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('nav-open');
+        });
+    </script>
 </body>
 </html>

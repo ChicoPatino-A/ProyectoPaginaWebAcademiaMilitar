@@ -1,12 +1,5 @@
 
-/* #region PLANTILLA BASE*/
-
-
 /*--------------------------------------------- PLANTILLA BASE ----------------------------------*/
-/* desde aqui*/
-
-/* Reset y estilos básicos */
-/* Reset básico */
 * {
     margin: 0;
     padding: 0;
@@ -18,10 +11,9 @@ body {
     background-color: #f7f7f7;
     color: #333;
     line-height: 1.6;
-    margin: 0;
 }
 
-/* Estilo del encabezado */
+
 header {
     background-color: #060057;
     color: white;
@@ -29,66 +21,49 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position: relative;
 }
 
 .header-content {
     display: flex;
+    background-color: #060057;
     align-items: center;
-    flex: 1;
-    overflow: hidden;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.logo {
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-right: 15px;
-}
-
-.title {
-    font-size: 1.2rem;
+header h1 {
+    font-size: 1.8rem;
     font-weight: bold;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    flex: 1;
 }
 
 nav {
+    margin-left: 2rem;
+    flex-grow: 1;
     display: flex;
-    align-items: center;
-    margin-left: auto;
-    transition: max-height 0.3s ease-out, visibility 0.3s ease-out;
-    overflow: hidden;
+    align-items: center; 
 }
 
 nav a {
-    color: #fff;
+    color: white;
     text-decoration: none;
-    margin: 0 1rem;
+    margin-left: 1rem;
     font-size: 1rem;
-    transition: color 0.3s;
 }
+
 
 nav a:hover {
-    color: #ccccff;
+    text-decoration: underline;
 }
 
-.menu-toggle {
-    font-size: 1.8rem;
-    background: none;
-    border: none;
-    color: #fff;
-    cursor: pointer;
-    display: none;
+.logo {
+    height: 60px;
+    width: 60px;
     margin-left: auto;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
-
-/* Estilo del main y footer */
 main {
     padding: 2rem;
     text-align: center;
@@ -110,79 +85,39 @@ footer {
     color: white;
     text-align: center;
     padding: 1rem;
+    /*position: absolute;*/
     width: 100%;
     bottom: 0;
 }
 
-nav a.nav-login {
-    color: #800080; /* Morado */
-    margin-left: auto;
-    background-color: #8e8eb4; /* Fondo claro para destacar */
-    padding: 0.5rem 1rem; /* Añade padding para mejorar la visibilidad */
-    border-radius: 5px; /* Bordes redondeados */
-    transition: background-color 0.3s, color 0.3s;
-}
+.header-content {
+    display: flex;
+    justify-content: space-between; /* Distribuye los elementos a lo largo del contenedor */
+    align-items: center; /* Alinea verticalmente los elementos al centro */
+    padding: 10px 20px; /* Espaciado interno para el contenido del encabezado */
+    background-color: #060057; /* Color de fondo opcional para el encabezado */
+  }
 
-/* Media Query para pantallas pequeñas */
-@media (max-width: 768px) {
+  .logo {
+    max-width: 100px; /* Ajusta el tamaño máximo del logo según sea necesario */
+  }
 
-    .title {
-        font-size: 1.0rem;
-        font-weight: bold;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        flex: 1;
-    }
+  
 
-    .menu-toggle {
-        display: block;
-    }
+  nav a {
+    margin-left: 20px; 
+    color: #ffffff; 
+    text-decoration: none; /* Quitar subrayado del texto del enlace */
+  }
+  
 
-    nav {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        flex-direction: column;
-        align-items: flex-start;
-        width: 100%;
-        background-color: #060057;
-        max-height: 0;
-        visibility: hidden;
-        overflow: hidden;
-    }
+  .nav-login {
+    margin-left: auto; /* Mueve este enlace hacia la derecha */
+    font-weight: bold; /* Opcional: Añade negrita al texto de "Iniciar Sesión" */
+    color: #fec4c4; /* Color del texto de "Iniciar Sesión" */
+    text-decoration: none; /* Quitar subrayado del texto del enlace */
+  }
 
-    nav.nav-open {
-        max-height: 280px; /* Ajustar según la cantidad de enlaces */
-        visibility: visible;
-        display: flex;
-    }
-
-    nav a {
-        margin: 1rem 0;
-        font-size: 0.9rem;
-        width: 100%;
-        text-align: center;
-    }
-
-    .header-content {
-        justify-content: flex-start;
-    }
-}
-
-
-/*--------------------------------------------- INDEX ----------------------------------*/
-
-.imagen-academia {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto; /* Centra la imagen horizontalmente */
-}
-
-/* #endregion */
-/* #region INICIAR SESION*/
 /*--------------------------------------------- INICIAR SESION ----------------------------------*/
 .iniciar-sesion-seccion {
     padding: 1rem;
@@ -229,8 +164,6 @@ nav a.nav-login {
 .iniciar-sesion-seccion button:hover {
     background-color: #004624;
 }
-/* #endregion*/
-/* #region CONTACTO*/
 
 /*---------------------------------------------CONTACTO ----------------------------------*/
 .contacto-seccion {
@@ -243,13 +176,15 @@ nav a.nav-login {
     text-align: center;
 }
 
+/* Título */
 .contacto-seccion h2 {
     font-size: 2.5rem;
-    color: #000;
+    color: #000; /* Cambiado a negro */
     margin-bottom: 1.5rem;
     font-weight: 700;
 }
 
+/* Contenido */
 .contacto-contenido {
     display: flex;
     flex-direction: column;
@@ -257,6 +192,7 @@ nav a.nav-login {
     gap: 1rem;
 }
 
+/* Imagen */
 .contacto-imagen {
     width: 150px;
     height: 150px;
@@ -265,6 +201,7 @@ nav a.nav-login {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Detalles */
 .contacto-detalles {
     text-align: center;
     max-width: 600px;
@@ -273,7 +210,7 @@ nav a.nav-login {
 .contacto-detalles p {
     font-size: 1rem;
     margin: 0.5rem 0;
-    color: #000;
+    color: #000; /* Cambiado a negro */
 }
 
 .contacto-detalles a {
@@ -288,6 +225,7 @@ nav a.nav-login {
     border-bottom: 2px solid #00381e;
 }
 
+/* Responsivo */
 @media (max-width: 768px) {
     .contacto-seccion {
         padding: 1.5rem;
@@ -312,8 +250,7 @@ nav a.nav-login {
         height: 120px;
     }
 }
-/* #endregion*/
-/* #region ACERCA DE*/
+
 /*---------------------------------------------ACERCA DE ----------------------------------*/
 main {
     max-width: 1200px;
@@ -324,6 +261,7 @@ main {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
+/* Título Principal */
 main h1:first-of-type {
     font-size: 2.5rem;
     color: #2d2c2c;
@@ -332,6 +270,7 @@ main h1:first-of-type {
     font-weight: 600;
 }
 
+/* Títulos Secundarios */
 main h1:not(:first-of-type) {
     font-size: 2rem;
     color: #00381e;
@@ -341,6 +280,7 @@ main h1:not(:first-of-type) {
     font-weight: 500;
 }
 
+/* Párrafos */
 main p {
     font-size: 1.125rem;
     margin-bottom: 1.5rem;
@@ -349,6 +289,7 @@ main p {
     text-align: justify;
 }
 
+/* Estilos de enlaces */
 main a {
     color: #005731;
     text-decoration: none;
@@ -359,6 +300,7 @@ main a:hover {
     color: #00381e;
 }
 
+/* Resaltar Párrafos Importantes */
 main p.important {
     background-color: #f0f0f5;
     padding: 1rem;
@@ -368,6 +310,7 @@ main p.important {
     font-weight: bold;
 }
 
+/* Estilo Responsivo */
 @media (max-width: 768px) {
     body {
         padding: 1rem;
@@ -407,9 +350,9 @@ main p.important {
         font-size: 0.875rem;
     }
 }
-/* #endregion*/
-/* #region PROMOCIONES*/
-/*---------------------------------------------PROMOCIONES ----------------------------------*/
+
+/*---------------------------------------------EMIES ----------------------------------*/
+
 .promociones-seccion {
     display: flex;
     justify-content: center;
@@ -430,28 +373,29 @@ main p.important {
     flex-direction: column;
     align-items: center;
     padding: 10px;
-    background-color: #19a3d94d;
+    background-color: #f9f9f9;
     border-radius: 10px;
-    overflow: hidden;
+    overflow: hidden; /* Asegura que el contenido no se desborde */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 200px;
+    width: 200px; /* Reducción del ancho de las tarjetas */
     max-width: 100%;
 }
 
 .promocion-imagen {
     width: 100%;
     height: auto;
-    object-fit: cover;
+    object-fit: cover; /* Recorta la imagen para que encaje en el cuadro */
     display: block;
-    border-radius: 10px;
+    border-radius: 10px; /* Aplicar el borde redondeado a todas las esquinas */
 }
 
 .promocion-numero {
-    font-size: 1em;
+    font-size: 1em; /* Tamaño de fuente más pequeño para el texto */
     color: #333;
     margin-top: 10px;
 }
 
+/* Responsivo */
 @media (max-width: 992px) {
     .promociones-grid {
         gap: 15px;
@@ -462,8 +406,8 @@ main p.important {
     }
 
     .promocion-imagen {
-        width: 100%;
-        height: auto;
+        width: 100%; /* Ajuste de ancho */
+        height: auto; /* Ajuste de altura */
     }
 }
 
@@ -477,17 +421,19 @@ main p.important {
     }
 
     .promocion-imagen {
-        width: 100%;
-        height: auto;
+        width: 100%; /* Ajuste de ancho */
+        height: auto; /* Ajuste de altura */
     }
 }
-/* #endregion*/
-/* #region ADMINISTRACION*/
+
+
+
 /*---------------------------------------------ADMINISTRACION ----------------------------------*/
+/* Estilos para el contenedor y los botones */
 .botonera {
     display: flex;
-    justify-content: space-around;
-    gap: 1em;
+    justify-content: space-around; /* Alineación horizontal con espacio entre elementos */
+    gap: 1em; /* Espacio entre botones */
     margin: 20px 0;
     padding: 10px;
 }
@@ -508,6 +454,7 @@ main p.important {
     background-color: #0056b3;
 }
 
+/* Estilo adaptable para pantallas pequeñas */
 @media (max-width: 600px) {
     .botonera {
         flex-direction: column;
@@ -520,57 +467,57 @@ main p.important {
         text-align: center;
     }
 }
-/* #endregion*/
-/* #region AÑADIR PROMOCION*/
+
 /*---------------------------------------------AÑADIR PROMOCION ----------------------------------*/
 .custom-button {
-    font-size: 1.2rem;
-    padding: 10px 30px;
+    font-size: 1.2rem; /* Aumenta el tamaño de la fuente */
+    padding: 10px 30px; /* Aumenta el tamaño del botón */
 }
 
 .custom-button-primary {
-    background-color: #0d2946;
-    border-color: #0d2946;
+    background-color: #0d2946; /* Color azul Bootstrap */
+    border-color: #0d2946; /* Color de borde azul */
 }
 
 .custom-button-primary:hover {
-    background-color: #0056b3;
-    border-color: #0056b3;
+    background-color: #0056b3; /* Color azul más oscuro al pasar el cursor */
+    border-color: #0056b3; /* Borde más oscuro al pasar el cursor */
 }
 
 .custom-button-outline {
-    border-color: #007bff;
-    color: #007bff;
+    border-color: #007bff; /* Color de borde azul */
+    color: #007bff; /* Color del texto azul */
 }
 
 .custom-button-outline:hover {
-    background-color: #007bff;
-    color: #fff;
+    background-color: #007bff; /* Fondo azul al pasar el cursor */
+    color: #fff; /* Texto blanco al pasar el cursor */
 }
-
 .btn {
-    font-size: 1rem;
-    padding: 8px 16px;
+    font-size: 1rem; /* Ajusta el tamaño de la fuente para un botón de tamaño medio */
+    padding: 8px 16px; /* Ajusta el tamaño del botón */
+    
 }
 
 .btn-primary, .btn-outline-primary {
-    min-width: 120px;
+    min-width: 120px; /* Asegura un ancho mínimo para los botones */
 }
 
-/* #endregion*/
-/* #region CREAR ADMINISTRADOR*/
 /*---------------------------------------------CREARADMINISTRADOR ----------------------------------*/
+
+/* CSS para añadir margen al botón */
 .ml-3 {
-    margin-left: 1rem;
+    margin-left: 1rem; /* Puedes ajustar el valor para más o menos espacio */
 }
-/* #endregion*/
-/* #region SUBIR IMAGEN*/
+
 /*---------------------------------------------SUBIRIMAGEN ----------------------------------*/
+/* Estilos generales para los formularios */
 .container {
     max-width: 600px;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
+    
 }
 
 .card {
@@ -592,7 +539,7 @@ main p.important {
 }
 
 .mb-3 {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.5rem; /* Ajusta el espacio entre los elementos */
 }
 
 .row {
@@ -631,10 +578,12 @@ main p.important {
     background-color: #6c757d;
     border-color: #6c757d;
     margin-top: 10px;
+
 }
 
 .btn-secondary:hover {
     background-color: #5a6268;
     border-color: #5a6268;
 }
-/* #endregion*/
+
+/*---------------------------------------------SUBIRVIDEO ----------------------------------*/
