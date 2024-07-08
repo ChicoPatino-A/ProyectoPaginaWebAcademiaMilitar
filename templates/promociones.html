@@ -10,8 +10,11 @@
     <div class="promociones-grid">
         {% for promocion in promociones %}
         <div class="promocion-item">
+            <form action="{{ url_for('mostrar_promocion', id=promocion.id) }}" method="get">
             <img src="{{ promocion.url_imagen }}" alt="Promoción {{ promocion.numero_promocion }}" class="promocion-imagen">
             <p class="promocion-numero">Promoción N°: {{ promocion.numero_promocion }}</p>
+            <button class="promocion-boton">Ver</button>
+            </form>
         </div>
         {% endfor %}
     </div>

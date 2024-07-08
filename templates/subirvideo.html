@@ -37,9 +37,10 @@
                     <div class="col-sm-8">
                         <select id="categoriaPromocion" name="categoriaPromocion" class="form-control" required>
                             <option value="">Seleccionar Promoción</option>
-                            <option value="PromocionL">Promoción L</option>
-                            <option value="PromocionLI">Promoción LI</option>
-                            <option value="PromocionLII">Promoción LII</option>
+                            {% for promocion in promociones %}
+                            <option value="PromocionL">Promoción {{promocion.numero_promocion}}</option>
+                            
+                            {% endfor %}
                         </select>
                     </div>
                 </div>

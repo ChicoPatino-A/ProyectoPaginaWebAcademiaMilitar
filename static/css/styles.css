@@ -481,9 +481,62 @@ main p.important {
         height: auto;
     }
 }
+
+
+.promocion-boton {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #060057;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.promocion-boton:hover {
+    background-color: #333;
+    transform: scale(1.05);
+}
+
+.promocion-boton:active {
+    background-color: #060057;
+    transform: scale(0.95);
+}
+
+/* Ajuste del botón para pantallas pequeñas */
+@media (max-width: 600px) {
+    .promocion-boton {
+        width: 100%;
+        font-size: 0.9rem;
+    }
+}
+
 /* #endregion*/
 /* #region ADMINISTRACION*/
 /*---------------------------------------------ADMINISTRACION ----------------------------------*/
+.alert {
+    padding: 15px;
+    background-color: #4CAF50;
+    color: white;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.alert-dismissible .close {
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    cursor: pointer;
+    color: white;
+    padding: 0 10px;
+    line-height: 1;
+}
+
 .botonera {
     display: flex;
     justify-content: space-around;
@@ -636,5 +689,23 @@ main p.important {
 .btn-secondary:hover {
     background-color: #5a6268;
     border-color: #5a6268;
+}
+/* #endregion*/
+/* #region PROMOCION DETALLE */
+.detalle-promocion-seccion {
+    padding: 20px;
+}
+
+.detalle-promocion-contenido {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.detalle-promocion-imagen {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 20px;
 }
 /* #endregion*/

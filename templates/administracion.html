@@ -1,6 +1,16 @@
 {% extends "plantillabase.html" %}
 {% block content %}
+
+{% if aviso %}
+<div class="alert alert-success alert-dismissible">
+    <span>{{ aviso }}</span>
+    <button type="button" class="close" onclick="this.parentElement.style.display='none';">&times;</button>
+</div>
+{% endif %}
+
 <h1>Administración</h1>
+
+
 <div class="botonera">
     <a href="{{url_for('crearAdministrador')}}">Crear Administrador</a>
     <a href="{{url_for('crearPromocion')}}">Añadir Promoción</a>

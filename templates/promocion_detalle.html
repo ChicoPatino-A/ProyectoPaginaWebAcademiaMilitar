@@ -1,0 +1,15 @@
+{% extends "plantillabase.html" %}
+{% block content %}
+
+{% if promocion %}
+<section id="detalle-promocion" class="detalle-promocion-seccion">
+    <h2>Detalle de la Promoción N°: {{ promocion.numero_promocion }}</h2>
+    <div class="detalle-promocion-contenido">
+        <img src="{{ promocion.url_imagen }}" alt="Imagen de la Promoción" class="detalle-promocion-imagen">
+        <p>ID de Promoción: {{ promocion.id }}</p>
+        <!-- Agregar más detalles aquí según la información de la promoción -->
+    </div>
+</section>
+{% endif %}
+
+{% endblock %}
