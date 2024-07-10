@@ -6,12 +6,12 @@
             <h2 class="text-center my-2">Subir Imágenes</h2>
         </div>
         <div class="card-body">
-            <form action="/subirimagen" method="post" enctype="multipart/form-data">
+            <form action="/guardarImagen" method="post" enctype="multipart/form-data">
                 <!-- Cargar Imagen -->
                 <div class="mb-3 row">
-                    <label for="imagenPromocion" class="col-sm-4 col-form-label text-end">Cargar Imagen:</label>
+                    <label for="imagenCargada" class="col-sm-4 col-form-label text-end">Cargar Imagen:</label>
                     <div class="col-sm-8">
-                        <input type="file" id="imagenPromocion" name="imagenPromocion" class="form-control" accept="image/*" required>
+                        <input type="file" id="imagenCargada" name="imagenCargada" class="form-control" accept="image/*" required>
                     </div>
                 </div>
 
@@ -33,12 +33,12 @@
 
                 <!-- Promoción -->
                 <div class="mb-3 row">
-                    <label for="categoriaPromocion" class="col-sm-4 col-form-label text-end">Promoción:</label>
+                    <label for="numeroDePromocion" class="col-sm-4 col-form-label text-end">Promoción:</label>
                     <div class="col-sm-8">
-                        <select id="categoriaPromocion" name="categoriaPromocion" class="form-control" required>
+                        <select id="numeroDePromocion" name="numeroDePromocion" class="form-control" required>
                             <option value="">Seleccionar Promoción</option>
                             {% for promocion in promociones %}
-                            <option value="PromocionL">Promoción {{promocion.numero_promocion}}</option>
+                            <option value="{{promocion.numero_promocion}}">{{promocion.numero_promocion}}</option>
                             
                             {% endfor %}
                         </select>

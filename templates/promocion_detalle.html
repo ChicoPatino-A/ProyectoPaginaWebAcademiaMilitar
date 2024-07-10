@@ -3,11 +3,27 @@
 
 {% if promocion %}
 <section id="detalle-promocion" class="detalle-promocion-seccion">
-    <h2>Detalle de la Promoción N°: {{ promocion.numero_promocion }}</h2>
+    <h1>Detalle de la Promoción N°: {{ promocion[1] }}</h1>
     <div class="detalle-promocion-contenido">
-        <img src="{{ promocion.url_imagen }}" alt="Imagen de la Promoción" class="detalle-promocion-imagen">
-        <p>ID de Promoción: {{ promocion.id }}</p>
-        <!-- Agregar más detalles aquí según la información de la promoción -->
+        <img src="{{ promocion[2] }}" alt="Imagen de la Promoción" class="detalle-promocion-imagen">
+        <h2>Imagenes y Videos</h2>
+        <h3>Videos</h3>
+        {% for video in videos %}
+        <h4>Titulo: {{ video.titulo }}</h4>
+        <video width="320" height="240" controls>
+            <source src="{{ video_url }}" type="video/mp4">
+            Tu navegador no soporta la etiqueta de video.
+        </video>
+        <p>Reseña: {{video.comentario}}</p>
+        {% endfor %}
+        <h3>Imagenes</h3>
+        {% for imagen in imagenes %}
+        <h4>Titulo: {{ imagen.titulo }}</h4>
+        <img src="{{ imagen.url_imagen }}" alt="Imagen de la Promoción" class="detalle-promocion-imagen">
+        <p>Reseña: {{imagen.comentario}}</p>
+        {% endfor %}
+
+
     </div>
 </section>
 {% endif %}

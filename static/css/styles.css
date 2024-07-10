@@ -697,15 +697,17 @@ main p.important {
 }
 
 .detalle-promocion-contenido {
+    
+
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .detalle-promocion-imagen {
-    max-width: 100%;
+    max-width: 40%;
     height: auto;
-    border-radius: 5px;
+    border-radius: 15px;
     margin-bottom: 20px;
 }
 /* #endregion*/
