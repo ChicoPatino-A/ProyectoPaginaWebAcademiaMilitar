@@ -691,14 +691,55 @@ main p.important {
     border-color: #5a6268;
 }
 /* #endregion*/
+/* #region SUBIR VIDEO */
+
+
+    .loader {
+        display: none;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1000;
+    }
+
+    .loader .circle {
+        width: 50px;
+        height: 50px;
+        border: 5px solid blue;
+        border-top: 5px solid transparent;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    .loading-text {
+        display: none;
+        position: fixed;
+        left: 50%;
+        top: 60%;
+        transform: translate(-50%, -50%);
+        z-index: 1000;
+        color: blue;
+        font-size: 18px;
+    }
+
+
+
+
+/* #endregion*/
 /* #region PROMOCION DETALLE */
 .detalle-promocion-seccion {
     padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
 }
 
 .detalle-promocion-contenido {
-    
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -709,5 +750,56 @@ main p.important {
     height: auto;
     border-radius: 15px;
     margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+.detalle-promocion-video {
+    max-width: 80%;
+    height: auto;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    background-color: #fff;
+}
+
+.detalle-promocion-video video {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+}
+
+.detalle-promocion-video::before {
+    content: '';
+    display: block;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+}
+
+.detalle-promocion-video video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.detalle-promocion-video video::-webkit-media-controls-panel {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.detalle-promocion-video video::-webkit-media-controls-play-button {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.detalle-promocion-video video::-webkit-media-controls-current-time-display,
+.detalle-promocion-video video::-webkit-media-controls-time-remaining-display {
+    color: #fff;
+}
+
+
+
 /* #endregion*/

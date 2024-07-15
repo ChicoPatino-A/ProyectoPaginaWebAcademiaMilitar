@@ -10,8 +10,8 @@
         <h3>Videos</h3>
         {% for video in videos %}
         <h4>Titulo: {{ video.titulo }}</h4>
-        <video width="320" height="240" controls>
-            <source src="{{ video_url }}" type="video/mp4">
+        <video class="detalle-promocion-video" controls>
+            <source src="{{ video.url_video }}" type="video/mp4">
             Tu navegador no soporta la etiqueta de video.
         </video>
         <p>Reseña: {{video.comentario}}</p>

@@ -6,12 +6,12 @@
             <h2 class="text-center my-2">Subir Videos</h2>
         </div>
         <div class="card-body">
-            <form action="/guardarVideo" method="post" enctype="multipart/form-data">
+            <form id="uploadForm" action="/guardarVideo" method="post" enctype="multipart/form-data">
                 <!-- Cargar Video -->
                 <div class="mb-3 row">
-                    <label for="videoPromocion" class="col-sm-4 col-form-label text-end">Cargar Video:</label>
+                    <label for="videoCargado" class="col-sm-4 col-form-label text-end">Cargar Video:</label>
                     <div class="col-sm-8">
-                        <input type="file" id="videoPromocion" name="videoPromocion" class="form-control" accept="video/*" required>
+                        <input type="file" id="videoCargado" name="videoCargado" class="form-control" accept="video/*" required>
                     </div>
                 </div>
 
@@ -33,13 +33,12 @@
 
                 <!-- Promoción -->
                 <div class="mb-3 row">
-                    <label for="categoriaPromocion" class="col-sm-4 col-form-label text-end">Promoción:</label>
+                    <label for="numeroDePromocion" class="col-sm-4 col-form-label text-end">Promoción:</label>
                     <div class="col-sm-8">
-                        <select id="categoriaPromocion" name="categoriaPromocion" class="form-control" required>
+                        <select id="numeroDePromocion" name="numeroDePromocion" class="form-control" required>
                             <option value="">Seleccionar Promoción</option>
                             {% for promocion in promociones %}
-                            <option value="PromocionL">Promoción {{promocion.numero_promocion}}</option>
-                            
+                            <option value="{{promocion.numero_promocion}}">{{promocion.numero_promocion}}</option>
                             {% endfor %}
                         </select>
                     </div>
@@ -57,5 +56,17 @@
         </div>
     </div>
 </div>
-{% endblock %}
 
+<!-- Indicador de carga -->
+<div class="loader" id="loader">
+    <div class="circle"></div>
+</div>
+<div class="loading-text" id="loading-text">Cargando...</div>
+
+<script>
+    document.getElementById('uploadForm').addEventListener('submit', function() {
+        document.getElementById('loader').style.display = 'block';
+        document.getElementById('loading-text').style.display = 'block';
+    });
+</script>
+{% endblock %}

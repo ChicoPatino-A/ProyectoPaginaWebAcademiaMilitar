@@ -85,8 +85,9 @@ def crearCuenta():
 
 # Inicializa Firebase
 def initialize_firebase(json_key_path, storage_bucket):
-    cred = credentials.Certificate(json_key_path)
-    firebase_admin.initialize_app(cred, {'storageBucket': storage_bucket})
+    if not firebase_admin._apps:
+        cred = credentials.Certificate(json_key_path)
+        firebase_admin.initialize_app(cred, {'storageBucket': storage_bucket})
 
 # Función para subir imagen a Firebase
 def subir_imagen(file_path):
@@ -165,6 +166,7 @@ def subir_video(local_path):
     bucket = storage.bucket()
     blob = bucket.blob(os.path.basename(local_path))
     blob.upload_from_filename(local_path)
+    blob.make_public()
     return blob.public_url
 
 @app.route('/guardarVideo', methods=['POST'])
@@ -193,6 +195,7 @@ def guardarVideo():
         
         url_video = subir_video(local_path)
         id_promocion = base_datos.obtener_id_promocion_por_numero(numeroDePromocion)
+        print("Id de la promocion es: ",id_promocion)
         base_datos.guardar_video(titulo, resena, url_video, id_promocion)
 
         os.remove(local_path)
@@ -204,13 +207,13 @@ def guardarVideo():
 def mostrar_promocion(id):
     promocion = base_datos.obtener_promocion_por_id(id)
     imagenes = base_datos.obtener_imagenes_por_id_promocion(id)
-    print(promocion)
-    print("Imagenes = ", imagenes)
+    videos = base_datos.obtener_videos_por_id_promocion(id)
+    
     if promocion:
-        return render_template('promocion_detalle.html', promocion=promocion, imagenes=imagenes)
+        return render_template('promocion_detalle.html', promocion=promocion, imagenes=imagenes, videos = videos)
     else:
         return "Promoción no encontrada.", 404
 
 if __name__ == '__main__':
-    app.run(debug=True, host='10.108.4.35', port=5000)
+    app.run(debug=True, host='192.168.43.69', port=5000)
 

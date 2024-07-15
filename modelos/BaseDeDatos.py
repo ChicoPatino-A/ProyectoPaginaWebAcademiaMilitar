@@ -8,7 +8,7 @@ class BaseDeDatos:
         return mysql.connector.connect(**self.config)
     
     def obtener_promociones(self):
-        conn = self.conectar()
+        conn = self.conectar() 
         cursor = conn.cursor(dictionary=True)
         
         query = "SELECT id, numero_promocion, url_imagen FROM promociones"
@@ -99,6 +99,7 @@ class BaseDeDatos:
             cursor.close()
             conn.close()
     def guardar_video(self,titulo,comentario, url_video, tupla_promocion ):
+            print("Tupla_promocion es:", tupla_promocion)
             id_promocion = tupla_promocion[0]
             conn = self.conectar()
             cursor = conn.cursor()
