@@ -527,6 +527,17 @@ main p.important {
     align-items: center;
 }
 
+.alert-rojo {
+    padding: 15px;
+    background-color: #af4c4c;
+    color: white;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .alert-dismissible .close {
     background: none;
     border: none;
@@ -557,8 +568,25 @@ main p.important {
     display: inline-block;
 }
 
+.botonera a.btn-red {
+    background-color: #FF0000; /* Fondo rojo para los botones de eliminar */
+}
+
+.botonera a.btn-yellow {
+    background-color: #FFD700; /* Fondo amarillo para los botones de editar */
+    color: black; /* Texto negro para mejor contraste */
+}
+
 .botonera a:hover {
     background-color: #0056b3;
+}
+
+.botonera a.btn-red:hover {
+    background-color: #cc0000; /* Rojo más oscuro al pasar el ratón para los botones de eliminar */
+}
+
+.botonera a.btn-yellow:hover {
+    background-color: #e6b800; /* Amarillo más oscuro al pasar el ratón para los botones de editar */
 }
 
 @media (max-width: 600px) {
@@ -573,6 +601,7 @@ main p.important {
         text-align: center;
     }
 }
+
 /* #endregion*/
 /* #region AÑADIR PROMOCION*/
 /*---------------------------------------------AÑADIR PROMOCION ----------------------------------*/

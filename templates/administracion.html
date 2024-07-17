@@ -10,12 +10,25 @@
 
 <h1>Administración</h1>
 
-
 <div class="botonera">
     <a href="{{url_for('crearAdministrador')}}">Crear Administrador</a>
     <a href="{{url_for('crearPromocion')}}">Añadir Promoción</a>
-
     <a href="{{url_for('subirVideo')}}">Subir Video</a>
     <a href="{{url_for('subirImagen')}}">Subir Imagen</a>
 </div>
+
+<div class="botonera">
+    <a href="{{url_for('editarAdministrador')}}" class="btn-yellow">Editar Administrador</a>
+    <a href="{{url_for('editarPromocion')}}" class="btn-yellow">Editar Promoción</a>
+    <a href="{{url_for('editarVideo')}}" class="btn-yellow">Editar Video</a>
+    <a href="{{url_for('editarImagen')}}" class="btn-yellow">Editar Imagen</a>
+</div>
+
+<div class="botonera">
+    <a href="{{url_for('eliminarAdministrador')}}" class="btn-red">Eliminar Administrador</a>
+    <a href="{{url_for('eliminarPromocion')}}" class="btn-red">Eliminar Promoción</a>
+    <a href="{{url_for('eliminarVideo')}}" class="btn-red">Eliminar Video</a>
+    <a href="{{url_for('eliminarImagen')}}" class="btn-red">Eliminar Imagen</a>
+</div>
+
 {% endblock %}    
