@@ -15,6 +15,7 @@ obtener_usuarios
 
 guardar_imagen
 obtener_imagenes_por_id_promocion
+obtener_imagenes
 
 # Logica para VIDEOS
 guardar_video
@@ -144,6 +145,29 @@ class BaseDeDatos:
         cursor.close()
         conn.close()
         return imagenes_de_la_promocion
+    
+    def obtener_imagenes(self):
+        conn = self.conectar() 
+        cursor = conn.cursor(dictionary=True)
+        
+        query = "SELECT id, titulo, id_promocion FROM imagenes"
+        cursor.execute(query)
+        imagenes = cursor.fetchall()
+
+        cursor.close()
+        conn.close()
+        return imagenes
+    
+    def eliminar_imagen(self,id):
+        conn = self.conectar() 
+        cursor = conn.cursor(dictionary=True)
+        
+        query = "DELETE FROM imagenes WHERE id = %s"
+        val =(id,)
+        cursor.execute(query,val)
+        conn.commit()  # Asegúrate de confirmar los cambios en la base de datos
+        cursor.close()
+        conn.close()
 
     #FIN ----------------------------------------------------------------------Logica para IMAGENES
 
@@ -172,7 +196,29 @@ class BaseDeDatos:
         cursor.close()
         conn.close()
         return videos_de_la_promocion
+    
+    def obtener_videos(self):
+        conn = self.conectar() 
+        cursor = conn.cursor(dictionary=True)
+        query = "SELECT id, titulo, id_promocion FROM videos"
+        cursor.execute(query)
+        videos = cursor.fetchall()
 
+        cursor.close()
+        conn.close()
+        return videos
+    
+    def eliminar_video(self,id):
+        conn = self.conectar() 
+        cursor = conn.cursor(dictionary=True)
+        
+        query = "DELETE FROM videos WHERE id = %s"
+        val =(id,)
+        cursor.execute(query,val)
+        conn.commit()  # Asegúrate de confirmar los cambios en la base de datos
+        cursor.close()
+        conn.close()
 
+ 
  #FIN ----------------------------------------------------------------------Logica para VIDEOS
 

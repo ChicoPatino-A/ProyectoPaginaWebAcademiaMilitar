@@ -1,0 +1,45 @@
+{% extends "plantillabase.html" %}
+{% block content %}
+
+{% if aviso %}
+<div class="alert alert-success alert-dismissible">
+    <span>{{ aviso }}</span>
+    <button type="button" class="close" onclick="this.parentElement.style.display='none';">&times;</button>
+</div>
+{% endif %}
+<h1>Eliminar Imagenes</h1>
+
+{% if imagenes %}
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Titulo</th>
+            <th>Numero de Promocion</th>
+            <th>Accion</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for imagen in imagenes %}
+        <tr>
+            <td>{{ imagen.id }}</td>
+            <td>{{ imagen.titulo }}</td>
+            {% for promocion in promociones %}
+            {% if promocion.id ==  imagen.id_promocion%}
+            <td>{{ promocion.numero_promocion }}</td>
+            {% endif %}
+            {% endfor %}
+            <td>
+                <form action="{{ url_for('eliminar_imagen_de_baseDatos', id=imagen.id) }}" method="POST">
+                    <button type="submit" class="btn-rojo">Eliminar</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>No hay administradores para eliminar.</p>
+{% endif %}
+<a href="{{ url_for('administracion') }}">Volver</a>
+{% endblock %}

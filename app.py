@@ -69,7 +69,7 @@ def iniciarsesion():
 @app.route('/promociones')  # ruta que obtiene la palabra /promociones
 def promociones():  # abre la funcion promociones
     promociones = base_datos.obtener_promociones()  # promociones lo obtiene de la BD por medio de la funcion "obtener_promociones"
-    return render_template('promociones.html', promociones=promociones) # se dIrige automaticamente a promociones.html, enviandole las promociones de la BD
+    return render_template('promociones/promociones.html', promociones=promociones) # se dIrige automaticamente a promociones.html, enviandole las promociones de la BD
 
 
 # Ruta para crear Cuenta
@@ -102,7 +102,7 @@ def login():
 
 @app.route('/crearAdministrador')
 def crearAdministrador():
-    return render_template('crearadministrador.html')
+    return render_template('administrador/crearadministrador.html')
 
 
 @app.route('/administracion')
@@ -119,7 +119,7 @@ def editarAdministrador():
 @app.route('/eliminarAdministrador')
 def eliminarAdministrador():
     administradores = base_datos.obtener_usuarios()
-    return render_template('eliminarAdministrador.html', administradores = administradores)
+    return render_template('administrador/eliminarAdministrador.html', administradores = administradores)
 
 
 
@@ -129,7 +129,8 @@ def eliminarAdministrador():
 def eliminar_administrador_de_baseDatos(id):
     base_datos.eliminar_administrador(id)
     administradores = base_datos.obtener_usuarios()
-    return render_template('eliminarAdministrador.html', aviso = "administrador eliminado exitosamente.", administradores = administradores)
+    return render_template('administrador/eliminarAdministrador.html', aviso = "administrador eliminado exitosamente.", administradores = administradores)
+
 
 #  Rutas para Promociones
 # 1 - guardarPromocion
@@ -171,7 +172,7 @@ def guardarPromocion(): # abre la funcion en la plantilla crearPromocion.html
  
 @app.route('/crearPromocion')
 def crearPromocion():
-    return render_template('crearpromocion.html')
+    return render_template('promociones/crearpromocion.html')
 
 @app.route('/promociones/<int:id>')
 def mostrar_promocion(id):  # abre la funcion mostrar_promociones a traves del parametro id de la BD
@@ -180,7 +181,7 @@ def mostrar_promocion(id):  # abre la funcion mostrar_promociones a traves del p
     videos = base_datos.obtener_videos_por_id_promocion(id)
     
     if promocion:
-        return render_template('promocion_detalle.html', promocion=promocion, imagenes=imagenes, videos = videos)
+        return render_template('promociones/promocion_detalle.html', promocion=promocion, imagenes=imagenes, videos = videos)
     else:
         return "Promoción no encontrada.", 404
     
@@ -209,7 +210,7 @@ def subir_video(local_path):
 @app.route('/subirVideo')
 def subirVideo():
     promociones = base_datos.obtener_promociones()  # obtiene el video de la promocion que corresponda a traves de la funcion  "obtener_promociones" de la BD
-    return render_template('subirVideo.html', promociones = promociones)
+    return render_template('videos/subirVideo.html', promociones = promociones)
 
 @app.route('/guardarVideo', methods=['POST'])   # abre la ruta con la palabra /guardarVideo que conecta con la plantilla subirVideo.html
 def guardarVideo(): # abre la funcion guardarVideo
@@ -247,7 +248,17 @@ def guardarVideo(): # abre la funcion guardarVideo
 
 @app.route('/eliminarVideo')
 def eliminarVideo():
-    return render_template('eliminarVideo.html')
+    videos = base_datos.obtener_videos()
+    promociones = base_datos.obtener_promociones()
+    return render_template('videos/eliminarVideos.html', videos = videos, promociones = promociones)
+
+@app.route('/eliminar_video_de_baseDatos/<int:id>', methods=['POST'])
+def eliminar_video_de_baseDatos(id):
+    base_datos.eliminar_video(id)
+    videos = base_datos.obtener_videos()
+    promociones = base_datos.obtener_promociones()
+    return render_template('videos/eliminarVideos.html', aviso = "Video eliminado exitosamente.", videos = videos, promociones = promociones)
+
 
 @app.route('/editarVideo')
 def editarVideo():
@@ -269,11 +280,12 @@ def subir_imagen(file_path):
 # 2 - Guardar Imagen
 # 3 - Eliminar Imagen
 # 4 - Editar Imagen
+# 5 - Eliminar imagen de base de datos
 
 @app.route('/subirImagen')
 def subirImagen():
     promociones = base_datos.obtener_promociones()
-    return render_template('subirImagen.html', promociones = promociones)
+    return render_template('imagenes/subirImagen.html', promociones = promociones)
 
 @app.route('/guardarImagen', methods=['POST'])  # abre la ruta con la palabra /guardarimagen que conecta con la plantilla subirImagen.html
 def guardarImagen():
@@ -311,11 +323,22 @@ def guardarImagen():
 
 @app.route('/eliminarImagen')
 def eliminarImagen():
-    return render_template('eliminarImagen.html')
+    imagenes = base_datos.obtener_imagenes()
+    promociones = base_datos.obtener_promociones()
+    return render_template('imagenes/eliminarImagenes.html', imagenes = imagenes, promociones = promociones)
 
 @app.route('/editarImagen')
 def editarImagen():
     return render_template('editarImagen.html')
+
+
+@app.route('/eliminar_imagen_de_baseDatos/<int:id>', methods=['POST'])
+def eliminar_imagen_de_baseDatos(id):
+    base_datos.eliminar_imagen(id)
+    imagenes = base_datos.obtener_imagenes()
+    promociones = base_datos.obtener_promociones()
+    return render_template('imagenes/eliminarImagenes.html', aviso = "imagen eliminada exitosamente.", imagenes = imagenes, promociones = promociones)
+
 
 
 # Funcion main de arranque del programa
