@@ -1,0 +1,39 @@
+{% extends "plantillabase.html" %}
+{% block content %}
+
+{% if aviso %}
+<div class="alert alert-success alert-dismissible">
+    <span>{{ aviso }}</span>
+    <button type="button" class="close" onclick="this.parentElement.style.display='none';">&times;</button>
+</div>
+{% endif %}
+<h1>Eliminar Administrador</h1>
+
+{% if administradores %}
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Email</th>
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for administrador in administradores %}
+        <tr>
+            <td>{{ administrador.id }}</td>
+            <td>{{ administrador.email }}</td>
+            <td>
+                <form action="{{ url_for('eliminar_administrador_de_baseDatos', id=administrador.id) }}" method="POST">
+                    <button type="submit" class="btn-rojo">Eliminar</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>No hay administradores para eliminar.</p>
+{% endif %}
+<a href="{{ url_for('administracion') }}">Volver</a>
+{% endblock %}

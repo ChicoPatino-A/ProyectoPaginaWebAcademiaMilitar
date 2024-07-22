@@ -104,18 +104,32 @@ def login():
 def crearAdministrador():
     return render_template('crearadministrador.html')
 
+
+@app.route('/administracion')
+def administracion():
+    return render_template('administracion.html')
+
+@app.route('/editarAdministrador')
+def editarAdministrador():
+    administradores = base_datos.obtener_usuarios()
+    return render_template('editarAdministrador.html', administradores = administradores)
+
 # Ruta para eliminar administrador
 
 @app.route('/eliminarAdministrador')
 def eliminarAdministrador():
-    return render_template('eliminarAdministrador.html')
+    administradores = base_datos.obtener_usuarios()
+    return render_template('eliminarAdministrador.html', administradores = administradores)
+
 
 
 # Ruta para editar administrador
 
-@app.route('/editarAdministrador')
-def editarAdministrador():
-    return render_template('editarAdministrador.html')
+@app.route('/eliminar_administrador_de_baseDatos/<int:id>', methods=['POST'])
+def eliminar_administrador_de_baseDatos(id):
+    base_datos.eliminar_administrador(id)
+    administradores = base_datos.obtener_usuarios()
+    return render_template('eliminarAdministrador.html', aviso = "administrador eliminado exitosamente.", administradores = administradores)
 
 #  Rutas para Promociones
 # 1 - guardarPromocion

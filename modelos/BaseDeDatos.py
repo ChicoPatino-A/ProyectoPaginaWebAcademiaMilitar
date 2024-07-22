@@ -9,6 +9,7 @@ obtener_promocion_por_id
 # Logica para USUARIOS
 obtener_usuario
 crear_usuario
+obtener_usuarios
 
 # Logica para IMAGENES
 
@@ -94,6 +95,30 @@ class BaseDeDatos:
         conn.commit()
         cursor.close()
         conn.close()
+
+    def obtener_usuarios(self):
+        conn = self.conectar() 
+        cursor = conn.cursor(dictionary=True)
+        
+        query = "SELECT id, email FROM usuarios"
+        cursor.execute(query)
+        usuarios = cursor.fetchall()
+
+        cursor.close()
+        conn.close()
+        return usuarios
+    
+    def eliminar_administrador(self,id):
+        conn = self.conectar() 
+        cursor = conn.cursor(dictionary=True)
+        
+        query = "DELETE FROM usuarios WHERE id = %s"
+        val =(id,)
+        cursor.execute(query,val)
+        conn.commit()  # Asegúrate de confirmar los cambios en la base de datos
+        cursor.close()
+        conn.close()
+
     #FIN ----------------------------------------------------------------------Logica para USUARIOS
     # Logica para IMAGENES  
     def guardar_imagen(self,titulo,comentario, url_imagen, tupla_promocion ):
