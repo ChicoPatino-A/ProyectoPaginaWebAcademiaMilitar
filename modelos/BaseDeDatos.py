@@ -72,6 +72,18 @@ class BaseDeDatos:
         promocion = cursor.fetchone()
         print(promocion)
         return promocion
+    
+    def eliminar_promocion(self,id):
+        conn = self.conectar() 
+        cursor = conn.cursor(dictionary=True)
+        
+        query = "DELETE FROM promociones WHERE id = %s"
+        val =(id,)
+        cursor.execute(query,val)
+        conn.commit()  # Asegúrate de confirmar los cambios en la base de datos
+        cursor.close()
+        conn.close()
+
     #FIN ----------------------------------------------------------------------Logica para PROMOCIONES
     #Logica para USUARIOS
     def obtener_usuario(self, correo, contrasena):

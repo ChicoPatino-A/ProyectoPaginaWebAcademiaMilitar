@@ -30,7 +30,7 @@
             {% endif %}
             {% endfor %}
             <td>
-                <form action="{{ url_for('eliminar_imagen_de_baseDatos', id=imagen.id) }}" method="POST">
+                <form action="{{ url_for('imagen_rutas.eliminar_imagen_de_baseDatos', id=imagen.id) }}" method="POST">
                     <button type="submit" class="btn-rojo">Eliminar</button>
                 </form>
             </td>
@@ -41,5 +41,5 @@
 {% else %}
 <p>No hay administradores para eliminar.</p>
 {% endif %}
-<a href="{{ url_for('administracion') }}">Volver</a>
+<a href="{{ url_for('usuario_rutas.administracion') }}">Volver</a>
 {% endblock %}

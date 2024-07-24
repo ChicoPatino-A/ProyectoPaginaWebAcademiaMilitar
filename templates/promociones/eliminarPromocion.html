@@ -7,30 +7,25 @@
     <button type="button" class="close" onclick="this.parentElement.style.display='none';">&times;</button>
 </div>
 {% endif %}
-<h1>Eliminar Videos</h1>
 
-{% if videos %}
+<h1>Eliminar Promoción</h1>
+
+{% if promociones %}
 <table>
     <thead>
         <tr>
             <th>ID</th>
-            <th>Titulo</th>
-            <th>Numero de Promocion</th>
-            <th>Accion</th>
+            <th>Numero de Promoción</th>
+            <th>Acción</th>
         </tr>
     </thead>
     <tbody>
-        {% for video in videos %}
+        {% for promocion in promociones %}
         <tr>
-            <td>{{ video.id }}</td>
-            <td>{{ video.titulo }}</td>
-            {% for promocion in promociones %}
-            {% if promocion.id ==  video.id_promocion%}
-            <td>{{ promocion.numero_promocion }}</td>
-            {% endif %}
-            {% endfor %}
+            <td>{{ promocion.id }}</td>
+            <td>{{ promocion.numero_promocion }}</td>            
             <td>
-                <form action="{{ url_for('video_rutas.eliminar_video_de_baseDatos', id=video.id) }}" method="POST">
+                <form action="{{ url_for('promocion_rutas.eliminar_promocion_de_baseDatos', id=promocion.id) }}" method="POST">
                     <button type="submit" class="btn-rojo">Eliminar</button>
                 </form>
             </td>
@@ -39,7 +34,7 @@
     </tbody>
 </table>
 {% else %}
-<p>No hay videos para eliminar.</p>
+<p>No hay promociones para eliminar.</p>
 {% endif %}
 <a href="{{ url_for('usuario_rutas.administracion') }}">Volver</a>
 {% endblock %}
