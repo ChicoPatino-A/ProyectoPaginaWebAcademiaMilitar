@@ -287,6 +287,20 @@ nav a.nav-login {
     color: #00381e;
     border-bottom: 2px solid #00381e;
 }
+.whatsapp-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #25D366;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.whatsapp-link svg {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+}
 
 @media (max-width: 768px) {
     .contacto-seccion {
@@ -829,6 +843,16 @@ main p.important {
     color: #fff;
 }
 
+/* Media Queries para dispositivos móviles */
+@media (max-width: 768px) {
+    .detalle-promocion-imagen {
+        max-width: 90%;
+    }
+
+    .detalle-promocion-video {
+        max-width: 90%;
+    }
+}
 
 
 /* #endregion*/

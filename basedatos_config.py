@@ -1,4 +1,5 @@
 
+# from modelos.BaseDeDatos import BaseDeDatos
 from modelos.BaseDeDatos import BaseDeDatos
 
 # Configuración de la base de datos
