@@ -33,7 +33,7 @@ def administracion():
 @usuarios_bp.route('/editarAdministrador')
 def editarAdministrador():
     administradores = base_datos.obtener_usuarios()
-    return render_template('editarAdministrador.html', administradores=administradores)
+    return render_template('administrador/editarAdministrador.html', administradores=administradores)
 
 @usuarios_bp.route('/eliminarAdministrador')
 def eliminarAdministrador():

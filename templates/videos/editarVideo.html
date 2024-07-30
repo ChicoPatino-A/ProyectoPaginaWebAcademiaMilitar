@@ -1,0 +1,47 @@
+{% extends "plantillabase.html" %}
+{% block content %}
+
+{% if aviso %}
+<div class="alert alert-success alert-dismissible">
+    <span>{{ aviso }}</span>
+    <button type="button" class="close" onclick="this.parentElement.style.display='none';">&times;</button>
+</div>
+{% endif %}
+<h1>Editar Videos</h1>
+
+{% if videos %}
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Titulo</th>
+            <th>Numero de Promocion</th>
+            <th>Reseña</th>
+            <th>Accion</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for video in videos %}
+        <tr>
+            <td>{{ video.id }}</td>
+            <td>{{ video.titulo }}</td>
+            {% for promocion in promociones %}
+            {% if promocion.id ==  video.id_promocion%}
+            <td>{{ promocion.numero_promocion }}</td>
+            {% endif %}
+            {% endfor %}
+            <td>{{video.comentario}}</td>
+            <td>
+                <form action="" method="POST">
+                    <button type="submit" class="btn-amarillo">Editar</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>No hay videos para editar.</p>
+{% endif %}
+<a href="{{ url_for('usuario_rutas.administracion') }}">Volver</a>
+{% endblock %}

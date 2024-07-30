@@ -162,7 +162,7 @@ class BaseDeDatos:
         conn = self.conectar() 
         cursor = conn.cursor(dictionary=True)
         
-        query = "SELECT id, titulo, id_promocion FROM imagenes"
+        query = "SELECT id, titulo, id_promocion, comentario FROM imagenes"
         cursor.execute(query)
         imagenes = cursor.fetchall()
 
@@ -197,6 +197,7 @@ class BaseDeDatos:
         conn.commit()
         cursor.close()
         conn.close()
+
     def obtener_videos_por_id_promocion(self, id):
         conn = self.conectar()
         cursor = conn.cursor(dictionary=True)
@@ -212,7 +213,7 @@ class BaseDeDatos:
     def obtener_videos(self):
         conn = self.conectar() 
         cursor = conn.cursor(dictionary=True)
-        query = "SELECT id, titulo, id_promocion FROM videos"
+        query = "SELECT id, titulo, id_promocion, comentario FROM videos"
         cursor.execute(query)
         videos = cursor.fetchall()
 

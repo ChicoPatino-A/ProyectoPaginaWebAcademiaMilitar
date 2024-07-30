@@ -76,4 +76,5 @@ def eliminar_promocion_de_baseDatos(id):
 
 @promociones_bp.route('/editarPromocion')
 def editarPromocion():
-    return render_template('editarPromocion.html')
+    promociones = base_datos.obtener_promociones()
+    return render_template('promociones/editarPromocion.html', promociones=promociones)

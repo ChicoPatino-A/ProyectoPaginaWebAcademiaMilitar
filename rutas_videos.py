@@ -60,7 +60,9 @@ def eliminar_video_de_baseDatos(id):
 
 @videos_bp.route('/editarVideo')
 def editarVideo():
-    return render_template('editarVideo.html')
+    videos = base_datos.obtener_videos()
+    promociones = base_datos.obtener_promociones()
+    return render_template('videos/editarVideo.html', videos=videos, promociones=promociones)
 
 def subir_video(local_path):
     bucket = storage.bucket()

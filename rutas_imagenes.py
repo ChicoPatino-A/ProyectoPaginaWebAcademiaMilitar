@@ -60,7 +60,9 @@ def eliminar_imagen_de_baseDatos(id):
 
 @imagenes_bp.route('/editarImagen')
 def editarImagen():
-    return render_template('editarImagen.html')
+    imagenes = base_datos.obtener_imagenes()
+    promociones = base_datos.obtener_promociones()
+    return render_template('imagenes/editarImagen.html', imagenes=imagenes, promociones=promociones)
 
 # Función para subir imagen a Firebase
 def subir_imagen(file_path):

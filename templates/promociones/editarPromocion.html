@@ -1,0 +1,40 @@
+{% extends "plantillabase.html" %}
+{% block content %}
+
+{% if aviso %}
+<div class="alert alert-success alert-dismissible">
+    <span>{{ aviso }}</span>
+    <button type="button" class="close" onclick="this.parentElement.style.display='none';">&times;</button>
+</div>
+{% endif %}
+
+<h1>Editar Promoción</h1>
+
+{% if promociones %}
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Numero de Promoción</th>
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for promocion in promociones %}
+        <tr>
+            <td>{{ promocion.id }}</td>
+            <td>{{ promocion.numero_promocion }}</td>            
+            <td>
+                <form action="" method="POST">
+                    <button type="submit" class="btn-amarillo">Editar</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>No hay promociones para editar.</p>
+{% endif %}
+<a href="{{ url_for('usuario_rutas.administracion') }}">Volver</a>
+{% endblock %}
