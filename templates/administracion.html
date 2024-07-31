@@ -11,24 +11,25 @@
 <h1>Administración</h1>
 
 <div class="botonera">
-    <a href="{{url_for('usuario_rutas.crearAdministrador')}}">Crear Administrador</a>
-    <a href="{{url_for('promocion_rutas.crearPromocion')}}">Añadir Promoción</a>
-    <a href="{{url_for('video_rutas.subirVideo')}}">Subir Video</a>
-    <a href="{{url_for('imagen_rutas.subirImagen')}}">Subir Imagen</a>
+    
+    <a href="{{url_for('usuario_rutas.crearAdministrador')}}"><span class="material-icons">person_add</span><span>Crear Administrador</span></a>
+    <a href="{{url_for('promocion_rutas.crearPromocion')}}"><span class="material-icons">group_add</span><span>Añadir Promoción</span></a>
+    <a href="{{url_for('video_rutas.subirVideo')}}"><span class="material-icons">videocam</span><span>Subir Video</span></a>
+    <a href="{{url_for('imagen_rutas.subirImagen')}}"><span class="material-icons">image</span><span>Subir Imagen</span></a>
 </div>
 
 <div class="botonera">
-    <a href="{{url_for('usuario_rutas.editarAdministrador')}}" class="btn-yellow">Editar Administrador</a>
-    <a href="{{url_for('promocion_rutas.editarPromocion')}}" class="btn-yellow">Editar Promoción</a>
-    <a href="{{url_for('video_rutas.editarVideo')}}" class="btn-yellow">Editar Video</a>
-    <a href="{{url_for('imagen_rutas.editarImagen')}}" class="btn-yellow">Editar Imagen</a>
+    <a href="{{url_for('usuario_rutas.editarAdministrador')}}" class="btn-yellow"><span class="material-icons">edit</span><span>Editar Administrador</span></a>
+    <a href="{{url_for('promocion_rutas.editarPromocion')}}" class="btn-yellow"><span class="material-icons">create</span><span>Editar Promoción</span></a>
+    <a href="{{url_for('video_rutas.editarVideo')}}" class="btn-yellow"><span class="material-icons">edit</span><span>Editar Video</span></a>
+    <a href="{{url_for('imagen_rutas.editarImagen')}}" class="btn-yellow"><span class="material-icons">edit</span><span>Editar Imagen</span></a>
 </div>
 
 <div class="botonera">
-    <a href="{{url_for('usuario_rutas.eliminarAdministrador')}}" class="btn-red">Eliminar Administrador</a>
-    <a href="{{url_for('promocion_rutas.eliminarPromocion')}}" class="btn-red">Eliminar Promoción</a>
-    <a href="{{url_for('video_rutas.eliminarVideo')}}" class="btn-red">Eliminar Video</a>
-    <a href="{{url_for('imagen_rutas.eliminarImagen')}}" class="btn-red">Eliminar Imagen</a>
+    <a href="{{url_for('usuario_rutas.eliminarAdministrador')}}" class="btn-red"><span class="material-icons">close</span><span>Eliminar Administrador</span></a>
+    <a href="{{url_for('promocion_rutas.eliminarPromocion')}}" class="btn-red"><span class="material-icons">close</span><span>Eliminar Promoción</span></a>
+    <a href="{{url_for('video_rutas.eliminarVideo')}}" class="btn-red"><span class="material-icons">close</span><span>Eliminar Video</span></a>
+    <a href="{{url_for('imagen_rutas.eliminarImagen')}}" class="btn-red"><span class="material-icons">close</span><span>Eliminar Imagen</span></a>
 </div>
 
 {% endblock %}    

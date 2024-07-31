@@ -1,12 +1,14 @@
 {% extends "plantillabase.html" %}
 {% block content %} 
 
-<!-- Sección de iniciar sesión -->
+
 <section id="iniciar-sesion" class="iniciar-sesion-seccion">
-    <h2>Crear Administrador</h2>
-    <form id="crearCuenta" action="/guardarAdministrador" method="post" onsubmit="return validarFormulario()">
+    <h2>Editar Administrador</h2>
+    <form id="crearCuenta" action="{{ url_for('usuario_rutas.modificarAdministrador_enBaseDatos')}}" method="post" onsubmit="return validarFormulario()">
         <label for="correo">Correo Electrónico:</label>
-        <input type="email" id="correo" name="correo" required>
+        <input type="text" id="id" name="id" value="{{ administrador[0] }}" hidden>
+
+        <input type="email" id="correo" name="correo" value="{{ administrador[1] }}" required>
 
         <label for="contrasena">Contraseña:</label>
         <input type="password" id="contrasena" name="contrasena" required minlength="6">
@@ -17,10 +19,10 @@
         <span id="errorContrasena" class="error" style="display: none;">Las contraseñas no coinciden</span>
 
 
-        <button type="submit">Crear Cuenta</button>
+        <button type="submit">Modificar Cuenta</button>
         
         <!-- Botón Volver -->
-        <button class="btn btn-secondary centered-link" onclick="window.history.back()"><span class="material-icons">arrow_back</span>Volver</button>
+        <button class="btn btn-secondary centered-link" onclick="window.history.back()"class="centered-link"><span class="material-icons">arrow_back</span>Volver</button>
     </form>
     
     <script>

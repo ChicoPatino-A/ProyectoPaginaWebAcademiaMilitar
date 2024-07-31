@@ -170,6 +170,16 @@ nav a.nav-login {
     }
 }
 
+.centered-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit; /* Para heredar el color del texto */
+}
+.centered-link .material-icons {
+    vertical-align: middle;
+    margin-right: 4px; /* Espacio entre el icono y el texto */
+}
 
 /*--------------------------------------------- INDEX ----------------------------------*/
 
@@ -495,7 +505,6 @@ main p.important {
     }
 }
 
-
 .promocion-boton {
     margin-top: 10px;
     padding: 10px 20px;
@@ -652,6 +661,16 @@ main p.important {
     min-width: 120px;
 }
 
+.centered-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit; /* Para heredar el color del texto */
+}
+.centered-link .material-icons {
+    vertical-align: middle;
+    margin-right: 4px; /* Espacio entre el icono y el texto */
+}
 /* #endregion*/
 /* #region CREAR ADMINISTRADOR*/
 /*---------------------------------------------CREARADMINISTRADOR ----------------------------------*/
@@ -916,4 +935,14 @@ form {
     background-color: #fdee0a;
 }
 
+.centered-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit; /* Para heredar el color del texto */
+}
+.centered-link .material-icons {
+    vertical-align: middle;
+    margin-right: 4px; /* Espacio entre el icono y el texto */
+}
 /* #endregion */

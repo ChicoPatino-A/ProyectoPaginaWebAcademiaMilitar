@@ -24,7 +24,7 @@
             <td>{{ administrador.id }}</td>
             <td>{{ administrador.email }}</td>
             <td>
-                <form action="" method="POST">
+                <form action="{{ url_for('usuario_rutas.modificarAdministrador', id=administrador.id) }}" method="POST">
                     <button type="submit" class="btn-amarillo">Editar</button>
                 </form>
             </td>
@@ -35,5 +35,5 @@
 {% else %}
 <p>No hay administradores para eliminar.</p>
 {% endif %}
-<a href="{{ url_for('usuario_rutas.administracion') }}">Volver</a>
+<a href="{{ url_for('usuario_rutas.administracion') }}"class="centered-link"><span class="material-icons">arrow_back</span>Volver</a>
 {% endblock %}

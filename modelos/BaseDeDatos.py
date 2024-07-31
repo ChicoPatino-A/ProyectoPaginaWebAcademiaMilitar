@@ -98,6 +98,18 @@ class BaseDeDatos:
         conn.close()
         return user
     
+    def obtener_usuario_por_id(self, id):
+        conn = self.conectar()
+        cursor = conn.cursor()
+
+        query = "SELECT * FROM usuarios WHERE id=%s"
+        cursor.execute(query, (id,))
+        user = cursor.fetchone()
+
+        cursor.close()
+        conn.close()
+        return user
+    
     def crear_usuario(self, correo, contrasena):
         conn = self.conectar()
         cursor = conn.cursor()
@@ -128,6 +140,22 @@ class BaseDeDatos:
         query = "DELETE FROM usuarios WHERE id = %s"
         val =(id,)
         cursor.execute(query,val)
+        conn.commit()  # Asegúrate de confirmar los cambios en la base de datos
+        cursor.close()
+        conn.close()
+
+    def modificar_usuario(self, id, correo, contrasena):
+        
+        
+
+        conn = self.conectar()
+        cursor = conn.cursor()
+        consulta = """
+        UPDATE usuarios
+        SET email = %s, password = %s
+        WHERE id = %s
+        """
+        cursor.execute(consulta, (correo, contrasena, id))
         conn.commit()  # Asegúrate de confirmar los cambios en la base de datos
         cursor.close()
         conn.close()

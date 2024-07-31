@@ -35,6 +35,20 @@ def editarAdministrador():
     administradores = base_datos.obtener_usuarios()
     return render_template('administrador/editarAdministrador.html', administradores=administradores)
 
+@usuarios_bp.route('/modificarAdministrador/<int:id>', methods=['GET','POST'])
+def modificarAdministrador(id):
+    administrador = base_datos.obtener_usuario_por_id(id)
+    return render_template('administrador/modificarAdministrador.html', administrador=administrador)
+
+@usuarios_bp.route('/modificarAdministrador_enBaseDatos', methods=['POST'])
+def modificarAdministrador_enBaseDatos():
+    id = request.form['id']
+    correo = request.form['correo']
+    contrasena = request.form['contrasena']
+    base_datos.modificar_usuario(id,correo, contrasena)
+    return render_template('administracion.html', aviso="¡El usuario se <strong>modifico</strong> exitosamente!")
+
+
 @usuarios_bp.route('/eliminarAdministrador')
 def eliminarAdministrador():
     administradores = base_datos.obtener_usuarios()
