@@ -32,7 +32,7 @@
             {% endfor %}
             <td>{{video.comentario}}</td>
             <td>
-                <form action="" method="POST">
+                <form action="{{ url_for('video_rutas.modificarVideo', id=video.id) }}" method="POST">
                     <button type="submit" class="btn-amarillo">Editar</button>
                 </form>
             </td>

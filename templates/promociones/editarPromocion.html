@@ -25,7 +25,7 @@
             <td>{{ promocion.id }}</td>
             <td>{{ promocion.numero_promocion }}</td>            
             <td>
-                <form action="" method="POST">
+                <form action="{{ url_for('promocion_rutas.modificarPromocion', id=promocion.id) }}" method="POST">
                     <button type="submit" class="btn-amarillo">Editar</button>
                 </form>
             </td>

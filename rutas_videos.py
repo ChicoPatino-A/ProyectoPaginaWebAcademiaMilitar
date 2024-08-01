@@ -64,6 +64,19 @@ def editarVideo():
     promociones = base_datos.obtener_promociones()
     return render_template('videos/editarVideo.html', videos=videos, promociones=promociones)
 
+@videos_bp.route('/modificarVideo/<int:id>', methods=['GET','POST'])
+def modificarVideo(id):
+    video = base_datos.obtener_video_por_id(id)
+    return render_template('videos/modificarVideo.html', video = video)
+
+@videos_bp.route('/modificarVideo_enBaseDatos', methods=['POST'])
+def modificarVideo_enBaseDatos():
+    id = request.form['id']
+    titulo = request.form['titulo']
+    comentario = request.form['comentario']
+    base_datos.modificar_video(id, titulo, comentario)
+    return render_template('administracion.html', aviso="¡El video se modifico correctamente!")
+
 def subir_video(local_path):
     bucket = storage.bucket()
     blob = bucket.blob(os.path.basename(local_path))

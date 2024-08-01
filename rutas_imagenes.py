@@ -64,6 +64,20 @@ def editarImagen():
     promociones = base_datos.obtener_promociones()
     return render_template('imagenes/editarImagen.html', imagenes=imagenes, promociones=promociones)
 
+@imagenes_bp.route('/modificarImagen/<int:id>', methods=['GET','POST'])
+def modificarImagen(id):
+    imagen = base_datos.obtener_imagen_por_id(id)
+    return render_template('imagenes/modificarImagen.html', imagen = imagen)
+
+@imagenes_bp.route('/modificarImagen_enBaseDatos', methods=['POST'])
+def modificarImagen_enBaseDatos():
+    id = request.form['id']
+    titulo = request.form['titulo']
+    comentario = request.form['comentario']
+    base_datos.modificar_imagen(id, titulo, comentario)
+    return render_template('administracion.html', aviso="¡La imagen se modifico exitosamente!")
+
+
 # Función para subir imagen a Firebase
 def subir_imagen(file_path):
     bucket = storage.bucket()

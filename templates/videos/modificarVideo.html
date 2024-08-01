@@ -1,0 +1,26 @@
+{% extends "plantillabase.html" %}
+{% block content %} 
+
+
+<section id="iniciar-sesion" class="iniciar-sesion-seccion">
+    <h2>Editar Video</h2>
+    <form id="crearCuenta" action="{{ url_for('video_rutas.modificarVideo_enBaseDatos')}}" method="post" onsubmit="return validarFormulario()">
+        <input type="text" id="id" name="id" value="{{ video[0] }}" hidden>
+        
+        <label for="titulo">Título:</label>
+        <input type="text" id="titulo" name="titulo" value="{{ video[1] }}" required>
+        
+        <label for="comentario">Comentario:</label>
+        <textarea id="comentario" name="comentario" value="{{ video[2] }}" required></textarea>
+
+        
+        <button class="btn-amarillo" type="submit">Modificar Video</button>
+        
+        <!-- Botón Volver -->
+        <button class="btn-amarillo centered-link" onclick="window.history.back()"class="centered-link"><span class="material-icons">arrow_back</span>Volver</button>
+    </form>
+    
+   
+</section>
+
+{% endblock %}

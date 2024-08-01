@@ -1,0 +1,24 @@
+{% extends "plantillabase.html" %}
+{% block content %} 
+
+
+<section id="iniciar-sesion" class="iniciar-sesion-seccion">
+    <h2>Editar Promocion</h2>
+    <form id="crearCuenta" action="{{ url_for('promocion_rutas.modificarPromocion_enBaseDatos')}}" method="post" onsubmit="return validarFormulario()">
+        <label for="correo">Numero de Promocion:</label>
+        <input type="text" id="id" name="id" value="{{ promocion[0] }}" hidden>
+
+        <input type="text" id="numero_promocion" name="numero_promocion" value="{{ promocion[1] }}" required>
+
+        
+
+        <button class="btn-amarillo" type="submit">Modificar Promocion</button>
+        
+        <!-- Botón Volver -->
+        <button class="btn-amarillo centered-link" onclick="window.history.back()"class="centered-link"><span class="material-icons">arrow_back</span>Volver</button>
+    </form>
+    
+   
+</section>
+
+{% endblock %}

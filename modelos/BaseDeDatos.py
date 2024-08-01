@@ -84,6 +84,19 @@ class BaseDeDatos:
         cursor.close()
         conn.close()
 
+    def modificar_promocion(self, id, numero_promcion):
+        conn = self.conectar()
+        cursor = conn.cursor()
+        consulta = """
+        UPDATE promociones
+        SET numero_promocion = %s
+        WHERE id = %s
+        """
+        cursor.execute(consulta, (numero_promcion, id))
+        conn.commit()  # Asegúrate de confirmar los cambios en la base de datos
+        cursor.close()
+        conn.close()
+
     #FIN ----------------------------------------------------------------------Logica para PROMOCIONES
     #Logica para USUARIOS
     def obtener_usuario(self, correo, contrasena):
@@ -145,9 +158,6 @@ class BaseDeDatos:
         conn.close()
 
     def modificar_usuario(self, id, correo, contrasena):
-        
-        
-
         conn = self.conectar()
         cursor = conn.cursor()
         consulta = """
@@ -209,7 +219,29 @@ class BaseDeDatos:
         cursor.close()
         conn.close()
 
-    #FIN ----------------------------------------------------------------------Logica para IMAGENES
+    def obtener_imagen_por_id(self, id):
+        conn = self.conectar()
+        cursor = conn.cursor()
+        query = "SELECT * FROM imagenes WHERE id = %s"
+        cursor.execute(query, (id,))
+        imagen = cursor.fetchone()
+        print(imagen)
+        return imagen
+
+    def modificar_imagen(self, id, titulo, comentario):
+        conn = self.conectar()
+        cursor = conn.cursor()
+        consulta = """
+        UPDATE imagenes
+        SET titulo = %s, comentario = %s
+        WHERE id = %s
+        """
+        cursor.execute(consulta, (titulo, comentario, id))
+        conn.commit()  # Asegúrate de confirmar los cambios en la base de datos
+        cursor.close()
+        conn.close()
+
+    #FIN ----------------------------------------------------------------------Logica para IMAGEN
 
      # Logica para VIDEOS  
 
@@ -260,6 +292,27 @@ class BaseDeDatos:
         cursor.close()
         conn.close()
 
- 
+    def obtener_video_por_id(self, id):
+        conn = self.conectar()
+        cursor = conn.cursor()
+        query = "SELECT * FROM videos WHERE id = %s"
+        cursor.execute(query, (id,))
+        video = cursor.fetchone()
+        print(video)
+        return video
+
+    def modificar_video(self, id, titulo, comentario):
+        conn = self.conectar()
+        cursor = conn.cursor()
+        consulta = """
+        UPDATE videos
+        SET titulo = %s, comentario = %s
+        WHERE id = %s
+        """
+        cursor.execute(consulta, (titulo, comentario, id))
+        conn.commit()  # Asegúrate de confirmar los cambios en la base de datos
+        cursor.close()
+        conn.close()
+  
  #FIN ----------------------------------------------------------------------Logica para VIDEOS
 

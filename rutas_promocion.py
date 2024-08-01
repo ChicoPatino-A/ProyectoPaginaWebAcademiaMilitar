@@ -78,3 +78,16 @@ def eliminar_promocion_de_baseDatos(id):
 def editarPromocion():
     promociones = base_datos.obtener_promociones()
     return render_template('promociones/editarPromocion.html', promociones=promociones)
+
+@promociones_bp.route('/modificarPromocion/<int:id>', methods=['GET','POST'])
+def modificarPromocion(id):
+    promocion = base_datos.obtener_promocion_por_id(id)
+    return render_template('promociones/modificarPromocion.html', promocion=promocion)
+
+@promociones_bp.route('/modificarPromocion_enBaseDatos', methods=['POST'])
+def modificarPromocion_enBaseDatos():
+    id = request.form['id']
+    numero_promocion = request.form['numero_promocion']
+    base_datos.modificar_promocion(id,numero_promocion)
+    return render_template('administracion.html', aviso="¡La promocion se modifico exitosamente!")
+

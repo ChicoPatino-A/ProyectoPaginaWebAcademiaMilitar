@@ -667,9 +667,16 @@ main p.important {
     text-decoration: none;
     color: inherit; /* Para heredar el color del texto */
 }
+
 .centered-link .material-icons {
-    vertical-align: middle;
-    margin-right: 4px; /* Espacio entre el icono y el texto */
+    margin-right: 4px;
+}
+
+.button-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: center; /* Centramos los botones */
 }
 /* #endregion*/
 /* #region CREAR ADMINISTRADOR*/
