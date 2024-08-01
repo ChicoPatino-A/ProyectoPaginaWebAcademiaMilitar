@@ -51,12 +51,49 @@ def eliminarImagen():
     promociones = base_datos.obtener_promociones()
     return render_template('imagenes/eliminarImagenes.html', imagenes=imagenes, promociones=promociones)
 
+"""
 @imagenes_bp.route('/eliminar_imagen_de_baseDatos/<int:id>', methods=['POST'])
 def eliminar_imagen_de_baseDatos(id):
     base_datos.eliminar_imagen(id)
     imagenes = base_datos.obtener_imagenes()
     promociones = base_datos.obtener_promociones()
     return render_template('imagenes/eliminarImagenes.html', aviso="Imagen eliminada exitosamente.", imagenes=imagenes, promociones=promociones)
+"""
+
+@imagenes_bp.route('/eliminar_imagen_de_baseDatos/<int:id>', methods=['POST'])
+def eliminar_imagen_de_baseDatos(id):
+    json_key_path = 'C://Users//aclog//Desktop//ProyectoFinal//Codigo//academiadelogistica-4a432-firebase-adminsdk-j0rgu-442fbffdb6.json'
+    storage_bucket = 'academiadelogistica-4a432.appspot.com'
+    initialize_firebase(json_key_path, storage_bucket)
+
+    # Obtener URL de la imagen y su identificador de Firebase Storage
+    datos_imagen = base_datos.obtener_imagen_por_id(id)
+    if not datos_imagen:
+        return "Imagen no encontrada", 404
+
+    url_imagen = datos_imagen[3]
+    nombre_archivo = obtener_nombre_archivo_de_url(url_imagen)
+
+    # Eliminar imagen de Firebase Storage
+    try:
+        bucket = storage.bucket()
+        blob = bucket.blob(nombre_archivo)
+        blob.delete()
+    except Exception as e:
+        return f"Error al eliminar la imagen de Firebase: {str(e)}", 500
+
+    # Eliminar registro de la imagen en la base de datos
+    base_datos.eliminar_imagen(id)
+
+    # Obtener las imágenes y promociones actualizadas
+    imagenes = base_datos.obtener_imagenes()
+    promociones = base_datos.obtener_promociones()
+
+    return render_template('imagenes/eliminarImagenes.html', aviso="Imagen eliminada exitosamente.", imagenes=imagenes, promociones=promociones)
+
+def obtener_nombre_archivo_de_url(url):
+    return url.split("/")[-1].split("?")[0]
+
 
 @imagenes_bp.route('/editarImagen')
 def editarImagen():
