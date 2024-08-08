@@ -123,6 +123,18 @@ class BaseDeDatos:
         conn.close()
         return user
     
+    def obtener_usuario_por_correo(self, correo):
+        conn = self.conectar()
+        cursor = conn.cursor()
+
+        query = "SELECT * FROM usuarios WHERE email=%s"
+        cursor.execute(query, (correo,))
+        user = cursor.fetchone()
+
+        cursor.close()
+        conn.close()
+        return user
+    
     def crear_usuario(self, correo, contrasena):
         conn = self.conectar()
         cursor = conn.cursor()

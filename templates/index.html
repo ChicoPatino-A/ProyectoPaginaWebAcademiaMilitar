@@ -1,11 +1,23 @@
 
 {% extends "plantillabase.html" %}
 {% block content %}
+
 <h2>Bienvenido a nuestra academia militar</h2>
-<img src="{{ url_for('static', filename='images/academia.jfif') }}" alt="Academia Militar" class="imagen-academia">
-<h3>Formando Líderes</h3>
-<h3>En nuestra academia, te ofrecemos la mejor formación militar para forjar un futuro brillante.</h3>
-<p>La Academia de Logística del Ejército de Tierra es fruto de la integración en un solo Centro de Enseñanza de las enseñanzas que se impartían en la Escuela de Logística del ET (ubicada en Villaverde), del Instituto Politécnico nº 1 (ubicado en Carabanchel-Madrid.) y  del Instituto Politécnico nº 2 (ubicado en Calatayud). La Academia de Logística está ubicada en el Acuartelamiento Barón de Warsage es uno de los Centros de Enseñanza más modernos e importantes del Ejército de Tierra. Está situada en la localidad aragonesa de Calatayud.
-    En la Academia se forman por Curso unos 2.000 Alumnos de las diversas Especialidades Técnicas y de Logística del Ejército, dando cabida, asimismo,  a otros Ejércitos Nacionales y Extranjeros.
-    </p>
+
+<div class="content-row">
+    <div class="image-block">
+        <img src="{{ url_for('static', filename='images/academia.jfif') }}" alt="Academia Militar" class="imagen-academia">
+    </div>
+    <div class="text-block">
+        <h3>Formando Líderes</h3>
+        <p>La Academia de Logística del Ejército de Tierra es fruto de la integración en un solo Centro de Enseñanza de las enseñanzas que se impartían en la Escuela de Logística del ET (ubicada en Villaverde), del Instituto Politécnico nº 1 (ubicado en Carabanchel-Madrid.) y del Instituto Politécnico nº 2 (ubicado en Calatayud). La Academia de Logística está ubicada en el Acuartelamiento Barón de Warsage es uno de los Centros de Enseñanza más modernos e importantes del Ejército de Tierra. Está situada en la localidad aragonesa de Calatayud.</p>
+        <p>En la Academia se forman por Curso unos 2.000 Alumnos de las diversas Especialidades Técnicas y de Logística del Ejército, dando cabida, asimismo, a otros Ejércitos Nacionales y Extranjeros.</p>
+    </div>
+</div>
+
 {% endblock %}
+
+
+
+
+

@@ -1,26 +1,40 @@
-# rutas_usuarios.py
 from flask import Blueprint, render_template, request
 from basedatos_config import base_datos
-
+from argon2 import PasswordHasher, exceptions
 
 usuarios_bp = Blueprint('usuario_rutas', __name__)
+
+# Crear instancia de PasswordHasher de Argon2
+ph = PasswordHasher()
 
 @usuarios_bp.route('/guardarAdministrador', methods=['POST'])
 def guardarAdministrador():
     correo = request.form['correo']
     contrasena = request.form['contrasena']
-    base_datos.crear_usuario(correo, contrasena)
+    
+    # Hashear la contraseña antes de guardarla
+    contrasena_hashed = ph.hash(contrasena)
+    
+    base_datos.crear_usuario(correo, contrasena_hashed)
     return render_template('administracion.html', aviso="¡El usuario se cargó exitosamente!")
 
 @usuarios_bp.route('/login', methods=['POST'])
 def login():
     correo = request.form['correo']
     contrasena = request.form['contrasena']
-    usuario = base_datos.obtener_usuario(correo, contrasena)
+    
+    # Obtener el usuario de la base de datos
+    usuario = base_datos.obtener_usuario_por_correo(correo)
+    
     if usuario:
-        return render_template('administracion.html')
-    else:
-        return render_template('iniciarsesion.html', aviso="¡El usuario no existe!")
+        # Verificar la contraseña ingresada contra el hash almacenado
+        try:
+            if ph.verify(usuario[2], contrasena):
+                return render_template('administracion.html')
+        except exceptions.VerifyMismatchError:
+            pass  # Si la contraseña no coincide, simplemente pasamos a devolver un error
+            
+    return render_template('iniciarsesion.html', aviso="¡El usuario no existe o la contraseña es incorrecta!")
 
 @usuarios_bp.route('/crearAdministrador')
 def crearAdministrador():
@@ -45,9 +59,12 @@ def modificarAdministrador_enBaseDatos():
     id = request.form['id']
     correo = request.form['correo']
     contrasena = request.form['contrasena']
-    base_datos.modificar_usuario(id,correo, contrasena)
-    return render_template('administracion.html', aviso="¡El usuario se <strong>modifico</strong> exitosamente!")
-
+    
+    # Hashear la nueva contraseña antes de guardarla
+    contrasena_hashed = ph.hash(contrasena)
+    
+    base_datos.modificar_usuario(id, correo, contrasena_hashed)
+    return render_template('administracion.html', aviso="¡El usuario se <strong>modificó</strong> exitosamente!")
 
 @usuarios_bp.route('/eliminarAdministrador')
 def eliminarAdministrador():

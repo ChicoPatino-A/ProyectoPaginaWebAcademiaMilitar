@@ -6,12 +6,13 @@
             <h2 class="text-center my-2">Añadir Promoción</h2>
         </div>
         <div class="card-body">
-            <form action="/guardarPromocion" method="post" enctype="multipart/form-data">
+            <form id="promocionForm" action="/guardarPromocion" method="post" enctype="multipart/form-data" onsubmit="return validarNumeroPromocion()">
                 <!-- Número de la Promoción -->
                 <div class="mb-3 row">
                     <label for="numeroPromocion" class="col-sm-3 col-form-label text-end">Número de la Promoción:</label>
                     <div class="col-sm-9">
                         <input type="text" id="numeroPromocion" name="numeroPromocion" class="form-control" required>
+                        <div id="errorNumeroPromocion" class="text-danger mt-2" style="display: none;">Número de la Promoción inválido. Solo se aceptan números romanos en mayúsculas.</div>
                     </div>
                 </div>
                 
@@ -34,9 +35,40 @@
         </div>
     </div>
 </div>
+
+<script>
+    function validarNumeroPromocion() {
+        // Expresión regular para validar números romanos en mayúsculas (I, V, X, L, C, D, M)
+        const regexRomanos = /^(I|V|X|L|C|D|M)+$/;
+        const numeroPromocion = document.getElementById("numeroPromocion").value;
+        const errorDiv = document.getElementById("errorNumeroPromocion");
+
+        if (!regexRomanos.test(numeroPromocion)) {
+            errorDiv.style.display = "block";
+            return false;
+        } else {
+            errorDiv.style.display = "none";
+            return true;
+        }
+    }
+</script>
+
+<!-- Indicador de carga -->
+<div class="loader-modal" id="loader-modal">
+    <div class="loader" id="loader">
+        <div class="circle"></div>
+    </div>
+    <div class="loading-text" id="loading-text">Procesando imagen, por favor espere...</div>
+
+</div>
+
+
+<script>
+     document.getElementById('promocionForm').addEventListener('submit', function() {
+        document.getElementById('loader-modal').style.display = 'flex';
+    });
+</script>
 {% endblock %}
 
 
 
-
-  
