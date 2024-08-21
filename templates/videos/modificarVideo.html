@@ -11,13 +11,13 @@
         <input type="text" id="titulo" name="titulo" value="{{ video[1] }}" required>
         
         <label for="comentario">Comentario:</label>
-        <textarea id="comentario" name="comentario" value="{{ video[2] }}" required></textarea>
+        <textarea id="comentario" name="comentario" rows="10" cols="50" value="{{ video[2] }}" required></textarea>
 
         
-        <button type="submit">Modificar Video</button>
+        <button type="submit" style="margin-top: 10px;">Modificar Video</button>
         
         <!-- Botón Volver -->        
-        <button class="btn btn-secondary centered-link" onclick="window.history.back()"><span class="material-icons">arrow_back</span>Volver</button>
+        <button class="btn-verde btn-outline-primary btn-lg centered-link" style=" color: white; margin-top: 10px;" onclick="window.history.back()"><span class="material-icons">arrow_back</span>Volver</button>
     </form>
     
    

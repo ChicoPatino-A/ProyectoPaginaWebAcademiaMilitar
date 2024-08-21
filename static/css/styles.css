@@ -739,36 +739,51 @@ main p.important {
 .ml-3 {
     margin-left: 1rem;
 }
+
+.error {
+    background-color: #f8d7da; /* Color de fondo rojo claro */
+    color: #721c24;            /* Color de texto rojo oscuro */
+    border: 1px solid #f5c6cb; /* Borde del mismo tono que el fondo */
+    border-radius: 5px;        /* Bordes redondeados */
+    padding: 15px;             /* Espaciado interno */
+    font-family: Arial, sans-serif; /* Tipografía */
+    font-size: 16px;           /* Tamaño de fuente */
+    text-align: center;        /* Alineación del texto */
+    margin: 10px;              /* Margen alrededor del cartel */
+  }
+  
 /* #endregion*/
 /* #region SUBIR IMAGEN*/
 /*---------------------------------------------SUBIRIMAGEN ----------------------------------*/
 .container {
-    max-width: 600px;
+    max-width: 900px;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
 }
 
 .card {
-    border: 1px solid #ccc;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border: 2px solid #ddd;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+    border-radius: 15px;
+    overflow: hidden;
 }
 
 .card-header {
     background-color: #007bff;
     color: #fff;
     text-align: center;
-    padding: 10px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    padding: 15px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 .card-body {
-    padding: 20px;
+    padding: 25px;
 }
 
-.mb-3 {
-    margin-bottom: 1.5rem;
+.mb-4 {
+    margin-bottom: 1.75rem;
 }
 
 .row {
@@ -778,6 +793,7 @@ main p.important {
 
 .col-form-label {
     font-weight: bold;
+    font-size: 1.1rem;
 }
 
 .form-control {
@@ -790,12 +806,13 @@ main p.important {
 
 .btn {
     padding: 0.75rem 1.5rem;
-    font-size: 1rem;
+    font-size: 1.1rem;
 }
 
 .btn-primary {
     background-color: #007bff;
     border-color: #007bff;
+    border-radius: 8px;
 }
 
 .btn-primary:hover {
@@ -803,16 +820,20 @@ main p.important {
     border-color: #0056b3;
 }
 
-.btn-secondary {
-    background-color: #6c757d;
-    border-color: #6c757d;
-    margin-top: 10px;
+.btn-outline-primary {
+    border-radius: 8px;
 }
 
-.btn-secondary:hover {
-    background-color: #5a6268;
-    border-color: #5a6268;
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #007bff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 123, 255, 0.5);
+    margin-bottom: 20px;
 }
+
+
 /* #endregion*/
 /* #region SUBIR VIDEO */
 
@@ -869,13 +890,22 @@ main p.important {
 }
 
 .detalle-promocion-contenido {
+    
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+.imagen-promocion
+{
+    max-width: 75%;
+    height: auto;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 .detalle-promocion-imagen {
-    max-width: 40%;
+    max-width: 90%;
     height: auto;
     border-radius: 15px;
     margin-bottom: 20px;
@@ -1007,7 +1037,7 @@ form {
     display: inline-flex;
     align-items: center;
     text-decoration: none;
-    color: inherit; /* Para heredar el color del texto */
+    color: white; /* Para heredar el color del texto */
 }
 .centered-link .material-icons {
     vertical-align: middle;
@@ -1038,5 +1068,10 @@ form {
 
 .centered-link .material-icons {
     vertical-align: middle;
+}
+
+#comentario {
+    width: 100%;
+    height: 200px;
 }
 /* #endregion */

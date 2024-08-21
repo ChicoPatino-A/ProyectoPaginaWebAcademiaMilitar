@@ -37,4 +37,4 @@ app.register_blueprint(imagenes_bp)
 
 # Función main de arranque del programa
 if __name__ == '__main__':
-    app.run(debug=True, host='192.168.43.69', port=5000)
+    app.run(debug=True, host='192.168.1.114', port=5000)

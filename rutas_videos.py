@@ -53,10 +53,32 @@ def eliminarVideo():
 
 @videos_bp.route('/eliminar_video_de_baseDatos/<int:id>', methods=['POST'])
 def eliminar_video_de_baseDatos(id):
+    json_key_path = 'C://Users//aclog//Desktop//ProyectoFinal//Codigo//academiadelogistica-4a432-firebase-adminsdk-j0rgu-442fbffdb6.json'
+    storage_bucket = 'academiadelogistica-4a432.appspot.com'
+    initialize_firebase(json_key_path, storage_bucket)
+    
+    datos_video = base_datos.obtener_video_por_id(id)
+    if not datos_video:
+        return "Video no encontrado", 404
+    
+    url_video = datos_video[3]
+    nombre_archivo = obtener_nombre_archivo_de_url(url_video)
+    
+    # Eliminar video de Firebase Storage
+    try:
+        bucket = storage.bucket()
+        blob = bucket.blob(nombre_archivo)
+        blob.delete()
+    except Exception as e:
+        return f"Error al eliminar el video de Firebase: {str(e)}", 500
+    
     base_datos.eliminar_video(id)
     videos = base_datos.obtener_videos()
     promociones = base_datos.obtener_promociones()
     return render_template('videos/eliminarVideos.html', aviso="Video eliminado exitosamente.", videos=videos, promociones=promociones)
+
+def obtener_nombre_archivo_de_url(url):
+    return url.split("/")[-1].split("?")[0]
 
 @videos_bp.route('/editarVideo')
 def editarVideo():

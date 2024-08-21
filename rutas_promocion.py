@@ -70,9 +70,35 @@ def eliminarPromocion():
 
 @promociones_bp.route('/eliminar_promocion_de_baseDatos/<int:id>', methods=['POST'])
 def eliminar_promocion_de_baseDatos(id):
+
+    json_key_path = 'C://Users//aclog//Desktop//ProyectoFinal//Codigo//academiadelogistica-4a432-firebase-adminsdk-j0rgu-442fbffdb6.json'
+    storage_bucket = 'academiadelogistica-4a432.appspot.com'
+    initialize_firebase(json_key_path, storage_bucket)
+
+    # Obtener URL de la promocion  y su identificador de Firebase Storage
+    datos_promocion = base_datos.obtener_promocion_por_id(id)
+    if not datos_promocion:
+        return "Promocion no encontrada", 404
+
+    url_imagen_promocion = datos_promocion[2]
+    nombre_archivo = obtener_nombre_archivo_de_url(url_imagen_promocion)
+
+    # Eliminar imagen de Firebase Storage
+    try:
+        bucket = storage.bucket()
+        blob = bucket.blob(nombre_archivo)
+        blob.delete()
+    except Exception as e:
+        return f"Error al eliminar la imagen de la promocion de Firebase: {str(e)}", 500
+    
     base_datos.eliminar_promocion(id)
     promociones = base_datos.obtener_promociones()
     return render_template('promociones/eliminarPromocion.html', aviso="Promoción eliminada exitosamente.", promociones=promociones)
+
+
+def obtener_nombre_archivo_de_url(url):
+    return url.split("/")[-1].split("?")[0]
+
 
 @promociones_bp.route('/editarPromocion')
 def editarPromocion():

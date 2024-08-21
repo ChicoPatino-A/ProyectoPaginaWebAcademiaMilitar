@@ -5,25 +5,36 @@
 <section id="detalle-promocion" class="detalle-promocion-seccion">
     <h1>Detalle de la Promoción N°: {{ promocion[1] }}</h1>
     <div class="detalle-promocion-contenido">
+        <div class = "imagen-promocion">
         <img src="{{ promocion[2] }}" alt="Imagen de la Promoción" class="detalle-promocion-imagen">
-        <h2>Imagenes y Videos</h2>
+        </div>
+        <h2>Imágenes y Videos</h2>
+        
         <h3>Videos</h3>
+        {% if videos %}
         {% for video in videos %}
-        <h4>Titulo: {{ video.titulo }}</h4>
+        <h4>Título: {{ video.titulo }}</h4>
         <video class="detalle-promocion-video" controls>
             <source src="{{ video.url_video }}" type="video/mp4">
             Tu navegador no soporta la etiqueta de video.
         </video>
-        <p>Reseña: {{video.comentario}}</p>
+        <p><b style="font-weight: bold;">Reseña:</b> {{ video.comentario }}</p>
         {% endfor %}
-        <h3>Imagenes</h3>
+        {% else %}
+        <p>Aún no hay videos cargados.</p>
+        {% endif %}
+
+        <h3>Imágenes</h3>
+        {% if imagenes %}
         {% for imagen in imagenes %}
-        <h4>Titulo: {{ imagen.titulo }}</h4>
+        <h4>Título: {{ imagen.titulo }}</h4>
         <img src="{{ imagen.url_imagen }}" alt="Imagen de la Promoción" class="detalle-promocion-imagen">
-        <p>Reseña: {{imagen.comentario}}</p>
+        <p><b style="font-weight: bold;">Reseña:</b> {{ imagen.comentario }}</p>
         {% endfor %}
-
-
+        {% else %}
+        <p>Aún no hay imágenes cargadas.</p>
+        {% endif %}
+        
     </div>
 </section>
 {% endif %}

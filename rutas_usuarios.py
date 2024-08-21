@@ -64,7 +64,7 @@ def modificarAdministrador_enBaseDatos():
     contrasena_hashed = ph.hash(contrasena)
     
     base_datos.modificar_usuario(id, correo, contrasena_hashed)
-    return render_template('administracion.html', aviso="¡El usuario se <strong>modificó</strong> exitosamente!")
+    return render_template('administracion.html', aviso="¡El usuario se modificó exitosamente!")
 
 @usuarios_bp.route('/eliminarAdministrador')
 def eliminarAdministrador():
