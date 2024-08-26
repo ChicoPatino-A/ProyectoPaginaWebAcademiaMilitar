@@ -2,19 +2,73 @@
 {% extends "plantillabase.html" %}
 {% block content %}
 
-<h2>Bienvenido a nuestra academia militar</h2>
+<style>
+   
+    .container {
+        padding: 20px;
+    }
+    .course {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+        /*border: 2px solid #b0c4c7; /* Color beige azulado */
+        /*border-radius: 10px; /* Borde redondeado */
+    }
+    .course img {
+        max-width: 400px;
+        height: auto;
+        border-radius: 15px;
+        box-shadow: 0 14px 18px rgba(0,0 ,0 , 0.7);
+    }
+    .course-text {
+        max-width: 45%;
+    }
+    .course h2 {
+        font-size: 24px;
+        margin-top: 0;
+    }
+    .course p {
+        color: #666;
+    }
 
-<div class="content-row">
-    <div class="image-block">
-        <img src="{{ url_for('static', filename='images/academia.jfif') }}" alt="Academia Militar" class="imagen-academia">
+</style>
+<h2>Bienvenido a nuestra academia</h2>
+
+<div class="container">
+    <img src="../static/images/academia.jfif" alt="Beauty at home course image">
+    <div class="course" style=" margin-top: 60px;">
+     
+        <div class="course-text">
+            <h2>Formación Especializada en la Academia de Logística</h2>
+            <p>La Academia de Logística se dedica a formar profesionales en la gestión de la cadena de suministro, transporte, almacenamiento y optimización de recursos. Ofrece cursos especializados en logística militar, gestión de inventarios y operaciones logísticas, con opciones de cambio de especialidad para tropa y suboficiales en áreas como informática, armamento, automoción, telecomunicaciones y mantenimiento de aeronaves. La academia asegura que sus egresados estén preparados para enfrentar desafíos logísticos en cualquier entorno operaciona.</p>
+        </div>
+        <img src="../static/images/entrada.JPG" alt="Beauty at home course image">
     </div>
-    <div class="text-block">
-        <h3>Formando Líderes</h3>
-        <p>La Academia de Logística del Ejército de Tierra es fruto de la integración en un solo Centro de Enseñanza de las enseñanzas que se impartían en la Escuela de Logística del ET (ubicada en Villaverde), del Instituto Politécnico nº 1 (ubicado en Carabanchel-Madrid.) y del Instituto Politécnico nº 2 (ubicado en Calatayud). La Academia de Logística está ubicada en el Acuartelamiento Barón de Warsage es uno de los Centros de Enseñanza más modernos e importantes del Ejército de Tierra. Está situada en la localidad aragonesa de Calatayud.</p>
-        <p>En la Academia se forman por Curso unos 2.000 Alumnos de las diversas Especialidades Técnicas y de Logística del Ejército, dando cabida, asimismo, a otros Ejércitos Nacionales y Extranjeros.</p>
+
+    <div class="course" style=" margin-top: 60px;">
+        <img src="../static/images/2 CIA.jfif" alt="Cosmetology course image">
+        <div class="course-text">
+            <h2>Desfiles</h2>
+            <p>A lo largo del año, la Academia de Logística organiza y participa en varios desfiles militares, que son eventos de gran importancia tanto para la institución como para sus alumnos. Estos desfiles son ocasiones en las que se exhiben las habilidades y la disciplina adquiridas durante el entrenamiento, destacando la precisión, coordinación y el espíritu de cuerpo que caracterizan a las fuerzas armadas.</p>
+        </div>
+    </div>
+    <div class="course" style=" margin-top: 60px;">
+     
+        <div class="course-text">
+            <h2>Maniobras</h2>
+            <p>Las maniobras militares son esenciales para garantizar que los miembros de la Academia de Logística estén plenamente preparados para enfrentar cualquier desafío operativo. Estas maniobras son ejercicios prácticos en los que se simulan escenarios de combate o situaciones de emergencia, permitiendo a los alumnos y al personal aplicar los conocimientos teóricos en un entorno controlado pero realista. A través de estas actividades, los participantes perfeccionan sus habilidades en planificación estratégica, coordinación de recursos, y toma de decisiones bajo presión.</p>
+        </div>
+        <img src="../static/images/cerler.jpg" alt="Beauty at home course image">
+    </div>
+
+    <div class="course" style=" margin-top: 60px;">
+        <img src="../static/images/L.jpeg" alt="Cosmetology course image">
+        <div class="course-text">
+            <h2>La Academia de Logística y su Compromiso con la Comunidad de Calatayud</h2>
+            <p>La Academia de Logística tiene una estrecha relación con el pueblo de Calatayud, y su participación en eventos comunitarios es una tradición que fortalece los lazos entre la institución y la ciudadanía. A lo largo del año, la academia se involucra activamente en diversas actividades locales, como desfiles cívico-militares, ferias, y ceremonias conmemorativas, demostrando su compromiso con la comunidad que la acoge.</p>
+        </div>
     </div>
 </div>
-
 {% endblock %}
 
 

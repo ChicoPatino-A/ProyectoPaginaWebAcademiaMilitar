@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Borcelle - Courses</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f4f2;
+            color: #333;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        header h1 {
+            font-size: 24px;
+            margin: 0;
+            font-weight: normal;
+            display: flex;
+            align-items: center;
+        }
+        header img {
+            height: 24px;
+            margin-right: 10px;
+        }
+        nav {
+            display: flex;
+            gap: 15px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+        .container {
+            padding: 20px;
+        }
+        .course {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        .course img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .course-text {
+            max-width: 45%;
+        }
+        .course h2 {
+            font-size: 24px;
+            margin-top: 0;
+        }
+        .course h3 {
+            font-size: 18px;
+            color: #666;
+        }
+        .course p {
+            color: #666;
+        }
+        .btn-read-more {
+            background-color: #d1c1b4;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .btn-read-more:hover {
+            background-color: #b9a18a;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><img src="../static/images/escudo.png" alt="Borcelle Logo"> BORCELLE</h1>
+        <nav>
+            <a href="#">HOME</a>
+            <a href="#">ABOUT</a>
+            <a href="#">COURSES</a>
+            <a href="#">SHOP</a>
+            <a href="#">CONTACT</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="course">
+            <div class="course-text">
+                <h2>Beauty at home</h2>
+                <h3>A 6-week online course</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+            <img src="../static/images/academia.jfif" alt="Beauty at home course image">
+        </div>
+
+        <div class="course">
+            <img src="../static/images/entrada.jfif" alt="Cosmetology course image">
+            <div class="course-text">
+                <h2>Cosmetology</h2>
+                <h3>A 4-week online course</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

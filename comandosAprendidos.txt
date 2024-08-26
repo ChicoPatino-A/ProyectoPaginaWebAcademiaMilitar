@@ -14,3 +14,6 @@ COMANDOS DE GIT HUB
 git add .
 git commit -m "comentario"
 git push origin master
+
+
+git log --oneline --date=short --pretty=format:"%h %ad | %s"
