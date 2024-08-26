@@ -1,11 +1,67 @@
 {% extends "plantillabase.html" %}
 {% block content %}
+
+<style>
+   
+    .container {
+        padding: 20px;
+    }
+    .course {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+        /*border: 2px solid #b0c4c7; /* Color beige azulado */
+        /*border-radius: 10px; /* Borde redondeado */
+    }
+    .course img {
+        max-width: 400px;
+        height: auto;
+        border-radius: 15px;
+        box-shadow: 0 14px 18px rgba(0,0 ,0 , 0.7);
+    }
+    .course-text {
+        max-width: 45%;
+    }
+    .course h2 {
+        font-size: 24px;
+        margin-top: 0;
+    }
+    .course p {
+        color: #666;
+    }
+
+    .pregunta-inicial h2 {
+        font-size: 24px;
+        margin-top: 0;
+    }
+
+    .pregunta-inicial p {
+        color: #0a0909;
+    }
+</style>
+
 <h1>Plataforma Multimedia de la Academia</h1>
-<p>¡Bienvenidos a nuestra plataforma web interactiva! Este espacio está dedicado a almacenar, gestionar y compartir los videos e imágenes capturados durante las actividades académicas y extracurriculares de nuestra academia. Aquí, encontrarás un repositorio centralizado y seguro que te permitirá acceder fácilmente a todos esos momentos importantes, ya seas alumno, exalumno o miembro del personal.</p>
-<h1>¿Por qué esta plataforma?</h1>
-<p>Queremos ofrecer una solución eficiente y segura para organizar y preservar el valioso contenido multimedia generado a lo largo del año académico. Esta herramienta no solo te permite gestionar y acceder fácilmente a una gran cantidad de videos e imágenes, sino que también garantiza su disponibilidad a largo plazo, evitando que se pierdan recuerdos significativos.</p>
-<h1>¿Qué sentido tiene?</h1>
-<p>Más allá de su funcionalidad práctica, esta plataforma tiene un gran valor emocional. Proporciona un medio para conservar y revivir recuerdos importantes, fomentando un sentido de comunidad y continuidad entre las distintas generaciones de nuestra academia. Es un lugar donde puedes volver a vivir esos momentos especiales y mantener vivos los lazos con tus compañeros.</p>
-<h1>¿Qué puedes hacer aquí?</h1>
-<p>En nuestra web, podrás visualizar contenido multimedia relacionado con la vida académica y militar de manera intuitiva y accesible. Diseñada para ser utilizada desde cualquier dispositivo, nuestra plataforma garantiza que puedas acceder a tus videos e imágenes en cualquier momento y lugar, siempre que lo necesites.</p>
+
+<div class="pregunta-inicial" style=" margin-top: 60px;">
+    <h2>¿Qué puedes hacer aquí?</h2>
+    <p>En nuestra web, podrás visualizar contenido multimedia relacionado con la vida académica y militar de manera intuitiva y accesible. Diseñada para ser utilizada desde cualquier dispositivo, nuestra plataforma garantiza que puedas acceder a tus videos e imágenes en cualquier momento y lugar, siempre que lo necesites.</p>
+   
+</div>
+
+<div class="course" style=" margin-top: 60px;">
+    <img src="../static/images/carrera.jpeg" alt="Cosmetology course image">
+    <div class="course-text">
+        <h2>¿Por qué esta plataforma?</h2>
+        <p>Queremos ofrecer una solución eficiente y segura para organizar y preservar el valioso contenido multimedia generado a lo largo del año académico. Esta herramienta no solo te permite gestionar y acceder fácilmente a una gran cantidad de videos e imágenes, sino que también garantiza su disponibilidad a largo plazo, evitando que se pierdan recuerdos significativos.</p>
+    </div>
+</div>
+
+<div class="course" style=" margin-top: 60px;">
+    <img src="../static/images/pateada.JPG" alt="Cosmetology course image">
+    <div class="course-text">
+        <h2>¿Qué sentido tiene?</h2>
+        <p>Más allá de su funcionalidad práctica, esta plataforma tiene un gran valor emocional. Proporciona un medio para conservar y revivir recuerdos importantes, fomentando un sentido de comunidad y continuidad entre las distintas generaciones de nuestra academia. Es un lugar donde puedes volver a vivir esos momentos especiales y mantener vivos los lazos con tus compañeros.</p>
+    </div>
+</div>
+
 {% endblock %}    
