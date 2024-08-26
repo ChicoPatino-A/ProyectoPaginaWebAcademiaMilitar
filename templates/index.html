@@ -1,77 +1,143 @@
-
 {% extends "plantillabase.html" %}
 {% block content %}
 
 <style>
-   
     .container {
         padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    h2 {
+        text-align: center;
+        font-size: 36px;
+        color: #2c3e50;
+        margin-bottom: 40px;
+    }
+    p {
+        text-align: center;
+        font-size: 18px;
+        color: #34495e;
+        margin-bottom: 50px;
     }
     .course {
         display: flex;
         justify-content: space-between;
-        margin-bottom: 30px;
-        /*border: 2px solid #b0c4c7; /* Color beige azulado */
-        /*border-radius: 10px; /* Borde redondeado */
+        margin-bottom: 50px;
+        padding: 20px;
+        background-color: #f7f9f9;
+        border-radius: 15px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+    .course:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
     }
     .course img {
         max-width: 400px;
         height: auto;
         border-radius: 15px;
-        box-shadow: 0 14px 18px rgba(0,0 ,0 , 0.7);
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .course:hover img {
+        transform: scale(1.05);
+        box-shadow: 0 18px 38px rgba(0, 0, 0, 0.25);
     }
     .course-text {
         max-width: 45%;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
     .course h2 {
+        font-size: 28px;
+        margin-top: 0;
+        color: #e74c3c;
+        transition: color 0.3s ease;
+    }
+    .course:hover h2 {
+        color: #c0392b;
+    }
+    .course p {
+        color: #070707;
+        line-height: 1.6;
+    }
+    @media (max-width: 768px) {
+        .course {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .course-text {
+            max-width: 100%;
+            padding: 20px 0;
+        }
+        .course img {
+            max-width: 100%;
+        }
+    }
+
+    .pregunta-inicial h2 {
         font-size: 24px;
         margin-top: 0;
     }
-    .course p {
-        color: #666;
-    }
 
+    .pregunta-inicial p {
+        color: #0a0909;
+    }
 </style>
-<h2>Bienvenidos a nuestra academia</h2>
-<p>¡Bienvenidos a nuestra plataforma web interactiva! Este espacio está dedicado a almacenar, gestionar y compartir los videos e imágenes capturados durante las actividades académicas y extracurriculares de nuestra academia. Aquí, encontrarás un repositorio centralizado y seguro que te permitirá acceder fácilmente a todos esos momentos importantes, ya seas alumno, exalumno o miembro del personal.</p>
+
+<h2>¡Bienvenidos a Nuestra Academia!</h2>
+
+<div class="pregunta-inicial" style=" margin-top: 60px; "></div>
+<p>Explora y Comparte Tus Momentos</p>
+<p>Nos alegra que estés aquí en nuestra plataforma web interactiva. Este espacio está especialmente diseñado para alojar, gestionar y compartir los videos e imágenes que capturan los momentos más destacados de nuestras actividades académicas y extracurriculares.</p>
+
+<p>Ya seas alumno, exalumno o parte de nuestro equipo, aquí encontrarás:</p>
+
+<ul style="list-style-type: disc; text-align: left; max-width: 800px; margin: 0 auto 50px auto; color: #070707;">
+    <li>Un repositorio centralizado y seguro con todos los recuerdos importantes.</li>
+    <li>Fácil acceso a todo el contenido que importa.</li>
+</ul>
+
+<p>¡Sumérgete y revive esos momentos especiales!</p>
+
+</div>
+
 <div class="container">
-    
-    <div class="course" style=" margin-top: 60px;">
-     
+    <div class="course">
         <div class="course-text">
             <h2>Formación Especializada en la Academia de Logística</h2>
-            <p>La Academia de Logística se dedica a formar profesionales en la gestión de la cadena de suministro, transporte, almacenamiento y optimización de recursos. Ofrece cursos especializados en logística militar, gestión de inventarios y operaciones logísticas, con opciones de cambio de especialidad para tropa y suboficiales en áreas como informática, armamento, automoción, telecomunicaciones y mantenimiento de aeronaves. La academia asegura que sus egresados estén preparados para enfrentar desafíos logísticos en cualquier entorno operaciona.</p>
+            <p>La Academia de Logística se dedica a formar profesionales en la gestión de la cadena de suministro, transporte, almacenamiento y optimización de recursos. Ofrece cursos especializados en logística militar, gestión de inventarios y operaciones logísticas, con opciones de cambio de especialidad para tropa y suboficiales en áreas como informática, armamento, automoción, telecomunicaciones y mantenimiento de aeronaves.</p>
         </div>
-        <img src="../static/images/entrada.JPG" alt="Beauty at home course image">
+        <img src="../static/images/entrada.JPG" alt="Formación en Logística">
     </div>
 
-    <div class="course" style=" margin-top: 60px;">
-        <img src="../static/images/2 CIA.jfif" alt="Cosmetology course image">
+    <div class="course">
+        <img src="../static/images/2 CIA.jfif" alt="Desfiles Militares">
         <div class="course-text">
             <h2>Desfiles Militares: Reflejo de Entrenamiento y Unidad</h2>
             <p>A lo largo del año, la Academia de Logística organiza y participa en varios desfiles militares, que son eventos de gran importancia tanto para la institución como para sus alumnos. Estos desfiles son ocasiones en las que se exhiben las habilidades y la disciplina adquiridas durante el entrenamiento, destacando la precisión, coordinación y el espíritu de cuerpo que caracterizan a las fuerzas armadas.</p>
         </div>
     </div>
-    <div class="course" style=" margin-top: 60px;">
-     
+
+    <div class="course">
         <div class="course-text">
             <h2>Maniobras Militares: Preparación para el Desafío Operativo</h2>
             <p>Las maniobras militares son esenciales para garantizar que los miembros de la Academia de Logística estén plenamente preparados para enfrentar cualquier desafío operativo. Estas maniobras son ejercicios prácticos en los que se simulan escenarios de combate o situaciones de emergencia, permitiendo a los alumnos y al personal aplicar los conocimientos teóricos en un entorno controlado pero realista. A través de estas actividades, los participantes perfeccionan sus habilidades en planificación estratégica, coordinación de recursos, y toma de decisiones bajo presión.</p>
         </div>
-        <img src="../static/images/cerler.jpg" alt="Beauty at home course image">
+        <img src="../static/images/cerler.jpg" alt="Maniobras Militares">
     </div>
 
-    <div class="course" style=" margin-top: 60px;">
-        <img src="../static/images/L.jpeg" alt="Cosmetology course image">
+    <div class="course">
+        <img src="../static/images/L.jpeg" alt="Compromiso con la Comunidad">
         <div class="course-text">
             <h2>La Academia de Logística y su Compromiso con la Comunidad de Calatayud</h2>
             <p>La Academia de Logística tiene una estrecha relación con el pueblo de Calatayud, y su participación en eventos comunitarios es una tradición que fortalece los lazos entre la institución y la ciudadanía. A lo largo del año, la academia se involucra activamente en diversas actividades locales, como desfiles cívico-militares, ferias, y ceremonias conmemorativas, demostrando su compromiso con la comunidad que la acoge.</p>
         </div>
     </div>
 </div>
+
 {% endblock %}
-
-
-
-
-
